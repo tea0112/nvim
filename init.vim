@@ -1,3 +1,4 @@
+set relativenumber
 set number
 set nohlsearch
 set tabstop=4 shiftwidth=4 expandtab
