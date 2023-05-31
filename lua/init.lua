@@ -2,7 +2,7 @@
 -- colorscheme --
 -----------------
 
-if (vim.loop.os_uname().sysname == "windows") then
+if (vim.loop.os_uname().sysname == "Windows_NT") then
     vim.cmd('colorscheme desert')
 else
     vim.cmd('colorscheme retrobox')
