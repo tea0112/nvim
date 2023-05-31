@@ -8,13 +8,13 @@ let mapleader=" "
 " normal mode map "
 """""""""""""""""""
 map <leader>sv :source $MYVIMRC<CR>
-map <C-n> :Explore<CR>
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>ff <CMD>Telescope find_files<CR>
+nnoremap <leader>fg <CMD>Telescope live_grep<CR>
+nnoremap <leader>fb <CMD>Telescope buffers<CR>
+nnoremap <leader>fh <CMD>Telescope help_tags<CR>
+nnoremap <C-n> <CMD>NvimTreeToggle<CR>
 
 imap jk <Esc>
 imap <C-n> :Explore<CR>

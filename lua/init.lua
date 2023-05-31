@@ -15,7 +15,17 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+------------------
+-- lazy plugins --
+------------------
 require("lazy").setup({
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        }
+    },
     "rebelot/kanagawa.nvim",
     {
         "williamboman/mason.nvim",
@@ -56,13 +66,24 @@ require("lazy").setup({
     lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json"
 })
 
+-------------------
+-- for nvim tree --
+-------------------
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
 ------------------
 -- plugin setup --
 ------------------
 require("lsp")
 require("mason").setup()
-require("plugin_configurations/go").setup()
-require("plugin_configurations/kanagawa").setup()
+require("plugin_configurations.go").setup()
+require("plugin_configurations.kanagawa").setup()
+require("plugin_configurations.nvim_tree").setup()
 
 -----------------
 -- colorscheme --
