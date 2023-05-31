@@ -1,14 +1,3 @@
------------------
--- colorscheme --
------------------
-
-if (vim.loop.os_uname().sysname == "Windows_NT") then
-    vim.cmd('colorscheme desert')
-else
-    vim.cmd('colorscheme retrobox')
-end
-
-
 ----------------------------------
 -- lazy package manager section --
 ----------------------------------
@@ -27,6 +16,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    "rebelot/kanagawa.nvim",
     {
         "williamboman/mason.nvim",
         build = ":MasonUpdate" -- :MasonUpdate updates registry contents
@@ -69,6 +59,12 @@ require("lazy").setup({
 ------------------
 -- plugin setup --
 ------------------
-require("mason").setup()
 require("lsp")
+require("mason").setup()
 require("plugin_configurations/go").setup()
+require("plugin_configurations/kanagawa").setup()
+
+-----------------
+-- colorscheme --
+-----------------
+vim.cmd('colorscheme kanagawa')
