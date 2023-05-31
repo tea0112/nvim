@@ -1,3 +1,14 @@
+-----------------
+-- colorscheme --
+-----------------
+
+if (vim.loop.os_uname().sysname == "windows") then
+    vim.cmd('colorscheme desert')
+else
+    vim.cmd('colorscheme retrobox')
+end
+
+
 ----------------------------------
 -- lazy package manager section --
 ----------------------------------
