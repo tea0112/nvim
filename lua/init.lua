@@ -19,6 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy plugins --
 ------------------
 require("lazy").setup({
+    "williamboman/mason-lspconfig.nvim",
     {
         "nvim-tree/nvim-tree.lua",
         version = "*",
@@ -45,7 +46,7 @@ require("lazy").setup({
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     --
-   {
+    {
         "ray-x/go.nvim",
         dependencies = { -- optional packages
             "ray-x/guihua.lua",
