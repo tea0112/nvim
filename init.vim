@@ -10,8 +10,10 @@ let mapleader=" "
 """""""""""""""""""
 " normal mode map "
 """""""""""""""""""
-map <leader>sv :source $MYVIMRC<CR>
+map <Leader>sv :source $MYVIMRC<CR>
 map <Backspace> <C-6>
+map <Leader>e "+yy
+map <Leader>r "+yp
 
 " Find files using Telescope command-line sugar.
 nnoremap ;a <CMD>Telescope find_files<CR>
@@ -22,6 +24,9 @@ nnoremap <C-n> <CMD>NvimTreeToggle<CR>
 
 imap jk <Esc>
 imap <C-n> :Explore<CR>
+
+vnoremap <Leader>e "+y
+vnoremap <Leader>r "+p
 
 lua << EOF
     require("init")
