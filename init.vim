@@ -13,7 +13,7 @@ let mapleader=" "
 map <Leader>sv :source $MYVIMRC<CR>
 map <Backspace> <C-6>
 map <Leader>e "+yy
-map <Leader>r "+yp
+nnoremap <Leader>r "+p
 
 " Find files using Telescope command-line sugar.
 nnoremap ;a <CMD>Telescope find_files<CR>
