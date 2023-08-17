@@ -6,6 +6,7 @@ function M.setup()
         view = {
             relativenumber = true,
             width = 30,
+            side = 'right'
         },
         renderer = {
             group_empty = true,
