@@ -21,6 +21,10 @@ nnoremap ;s <CMD>Telescope live_grep<CR>
 nnoremap ;d <CMD>Telescope buffers<CR>
 nnoremap ;f <CMD>Telescope help_tags<CR>
 nnoremap <C-n> <CMD>NvimTreeToggle<CR>
+nmap f <Leader><Leader>f
+nmap F <Leader><Leader>F
+vmap f <Leader><Leader>f
+vmap F <Leader><Leader>F
 
 imap jk <Esc>
 imap <C-n> :Explore<CR>

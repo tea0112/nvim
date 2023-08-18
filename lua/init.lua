@@ -67,7 +67,8 @@ require("lazy").setup({
         'nvim-telescope/telescope.nvim',
         tag = '0.1.1',
         dependencies = { 'nvim-lua/plenary.nvim' }
-    }
+    },
+    'easymotion/vim-easymotion'
 }, {
     lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json"
 })
