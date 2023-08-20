@@ -19,6 +19,17 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy plugins --
 ------------------
 require("lazy").setup({
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+        end
+    },
+    {
+        'numToStr/Comment.nvim',
+        lazy = false,
+    },
     "williamboman/mason-lspconfig.nvim",
     {
         "nvim-tree/nvim-tree.lua",
@@ -88,6 +99,8 @@ vim.opt.termguicolors = true
 ------------------
 require("lsp")
 require("mason").setup()
+require("Comment").setup()
+require("nvim-surround").setup()
 require("plugin_configurations.go").setup()
 require("plugin_configurations.kanagawa").setup()
 require("plugin_configurations.nvim_tree").setup()
