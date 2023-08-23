@@ -109,3 +109,10 @@ require("plugin_configurations.nvim_tree").setup()
 -- colorscheme --
 -----------------
 vim.cmd('colorscheme kanagawa')
+
+
+-----------------
+-- key mapping --
+-----------------
+opts_silent_noremap = { silent = true, noremap = true }
+vim.keymap.set('n', ',s', ':wa<CR>', opts_silent_noremap)
