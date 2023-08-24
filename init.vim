@@ -35,3 +35,8 @@ vnoremap <Leader>r "+p
 lua << EOF
     require("init")
 EOF
+
+""""""""""""""""""""""""""""""""""""""""""
+" setting up plugin with pure vim script "
+""""""""""""""""""""""""""""""""""""""""""
+let g:EasyMotion_smartcase = 1
