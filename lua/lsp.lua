@@ -51,7 +51,7 @@ require("plugin_configurations.nvim_cmp").setup()
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- setup language server by lspconfig plugin
-lspconfig.marksman.setup{}
+lspconfig.marksman.setup {}
 
 lspconfig.gopls.setup {
     capabilities = capabilities,

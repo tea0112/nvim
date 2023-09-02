@@ -103,7 +103,9 @@ require("Comment").setup()
 require("nvim-surround").setup()
 require("plugin_configurations.go").setup()
 require("plugin_configurations.kanagawa").setup()
+require("plugin_configurations.mason_lsp_config").setup()
 require("plugin_configurations.nvim_tree").setup()
+require("plugin_configurations.telescope").setup()
 
 -----------------
 -- colorscheme --
