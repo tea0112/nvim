@@ -20,6 +20,11 @@ vim.opt.rtp:prepend(lazypath)
 ------------------
 require("lazy").setup({
     {
+        'altermo/ultimate-autopair.nvim',
+        event = { 'InsertEnter', 'CmdlineEnter' },
+        branch = 'v0.6',
+    },
+    {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
         event = "VeryLazy",
@@ -101,6 +106,8 @@ require("lsp")
 require("mason").setup()
 require("Comment").setup()
 require("nvim-surround").setup()
+require("ultimate-autopair").setup()
+
 require("plugin_configurations.go").setup()
 require("plugin_configurations.kanagawa").setup()
 require("plugin_configurations.mason_lsp_config").setup()
