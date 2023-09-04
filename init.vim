@@ -14,12 +14,10 @@ map <Leader>sv :source $MYVIMRC<CR>
 map <Backspace> <C-6>
 map <Leader>e "+yy
 nnoremap <Leader>r "+p
-
-" Find files using Telescope command-line sugar.
-nnoremap ;a <CMD>Telescope find_files<CR>
-nnoremap ;s <CMD>Telescope live_grep<CR>
-nnoremap ;d <CMD>Telescope buffers<CR>
-nnoremap ;f <CMD>Telescope help_tags<CR>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <C-n> <CMD>NvimTreeToggle<CR>
 nmap f <Leader><Leader>f
 nmap F <Leader><Leader>F
