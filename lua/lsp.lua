@@ -80,3 +80,8 @@ lspconfig.lua_ls.setup {
         },
     },
 }
+
+-- lspconfig.java_language_server.setup({
+--     capabilities = capabilities,
+--     cmd = { "java-language-server" }
+-- })

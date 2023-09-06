@@ -20,6 +20,27 @@ vim.opt.rtp:prepend(lazypath)
 ------------------
 require("lazy").setup({
     {
+        "utilyre/barbecue.nvim",
+        name = "barbecue",
+        version = "*",
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons",         -- optional dependency
+        },
+    },
+
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
+    },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+    'mfussenegger/nvim-jdtls',
+    {
         'altermo/ultimate-autopair.nvim',
         event = { 'InsertEnter', 'CmdlineEnter' },
         branch = 'v0.6',
@@ -107,7 +128,9 @@ require("mason").setup()
 require("Comment").setup()
 require("nvim-surround").setup()
 require("ultimate-autopair").setup()
+require("barbecue").setup()
 
+require("plugin_configurations.lua_line").setup()
 require("plugin_configurations.go").setup()
 require("plugin_configurations.kanagawa").setup()
 require("plugin_configurations.mason_lsp_config").setup()
@@ -117,9 +140,19 @@ require("plugin_configurations.telescope").setup()
 -----------------
 -- colorscheme --
 -----------------
-vim.cmd('colorscheme kanagawa')
+vim.cmd [[colorscheme tokyonight-moon]]
 
 
+-----------------
+-- key mapping --
+-----------------
+opts_silent_noremap = { silent = true, noremap = true }
+vim.keymap.set('n', ',s', ':wa<CR>', opts_silent_noremap)
+-----------------
+-- key mapping --
+-----------------
+opts_silent_noremap = { silent = true, noremap = true }
+vim.keymap.set('n', ',s', ':wa<CR>', opts_silent_noremap)
 -----------------
 -- key mapping --
 -----------------
