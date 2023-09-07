@@ -19,13 +19,15 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy plugins --
 ------------------
 require("lazy").setup({
+    "sindrets/diffview.nvim",
+    "lewis6991/gitsigns.nvim",
     {
         "utilyre/barbecue.nvim",
         name = "barbecue",
         version = "*",
         dependencies = {
             "SmiteshP/nvim-navic",
-            "nvim-tree/nvim-web-devicons",         -- optional dependency
+            "nvim-tree/nvim-web-devicons", -- optional dependency
         },
     },
 
@@ -130,6 +132,7 @@ require("nvim-surround").setup()
 require("ultimate-autopair").setup()
 require("barbecue").setup()
 
+require("plugin_configurations.gitsigns").setup()
 require("plugin_configurations.lua_line").setup()
 require("plugin_configurations.go").setup()
 require("plugin_configurations.kanagawa").setup()
