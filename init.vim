@@ -13,6 +13,8 @@ let mapleader=" "
 map <Leader>sv :source $MYVIMRC<CR>
 map <Backspace> <C-6>
 map <Leader>e "+yy
+
+nnoremap x "xx
 nnoremap <Leader>r "+p
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -21,12 +23,14 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <C-n> <CMD>NvimTreeToggle<CR>
 nmap f <Leader><Leader>f
 nmap F <Leader><Leader>F
+
 vmap f <Leader><Leader>f
 vmap F <Leader><Leader>F
 
 imap jk <Esc>
 imap <C-n> :Explore<CR>
 
+vnoremap x "xx
 vnoremap <Leader>e "+y
 vnoremap <Leader>r "+p
 
