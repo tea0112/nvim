@@ -104,7 +104,6 @@ require("lazy").setup({
     'theHamsta/nvim-dap-virtual-text',
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.1',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     'easymotion/vim-easymotion'
