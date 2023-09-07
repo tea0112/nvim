@@ -138,6 +138,7 @@ require("plugin_configurations.kanagawa").setup()
 require("plugin_configurations.mason_lsp_config").setup()
 require("plugin_configurations.nvim_tree").setup()
 require("plugin_configurations.telescope").setup()
+require("plugin_configurations.tokyonight").setup()
 
 -----------------
 -- colorscheme --
