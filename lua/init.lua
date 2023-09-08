@@ -19,6 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy plugins --
 ------------------
 require("lazy").setup({
+    'nvim-treesitter/nvim-treesitter',
     {
         "jay-babu/mason-null-ls.nvim",
         event = { "BufReadPre", "BufNewFile" },
@@ -139,6 +140,7 @@ require("nvim-surround").setup()
 require("ultimate-autopair").setup()
 require("barbecue").setup()
 
+require("plugin_configurations.nvim_treesitter_config").setup()
 require("plugin_configurations.nvim_lint").setup()
 require("plugin_configurations.mason_null_ls").setup()
 require("plugin_configurations.mason").setup()
