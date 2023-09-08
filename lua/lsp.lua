@@ -50,13 +50,16 @@ require("plugin_configurations.nvim_cmp").setup()
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- setup language server by lspconfig plugin
-lspconfig.marksman.setup {}
+lspconfig.pyright.setup({})
 
-lspconfig.gopls.setup {
+-- setup language server by lspconfig plugin
+lspconfig.marksman.setup({})
+
+lspconfig.gopls.setup({
     capabilities = capabilities,
-}
-lspconfig.lua_ls.setup {
+})
+
+lspconfig.lua_ls.setup({
     capabilities = capabilities,
     settings = {
         Lua = {
@@ -79,9 +82,4 @@ lspconfig.lua_ls.setup {
             },
         },
     },
-}
-
--- lspconfig.java_language_server.setup({
---     capabilities = capabilities,
---     cmd = { "java-language-server" }
--- })
+})

@@ -19,6 +19,15 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy plugins --
 ------------------
 require("lazy").setup({
+    {
+        "jay-babu/mason-null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "jose-elias-alvarez/null-ls.nvim",
+        },
+    },
+    'mfussenegger/nvim-lint',
     "sindrets/diffview.nvim",
     "lewis6991/gitsigns.nvim",
     {
@@ -125,12 +134,14 @@ vim.opt.termguicolors = true
 -- plugin setup --
 ------------------
 require("lsp")
-require("mason").setup()
 require("Comment").setup()
 require("nvim-surround").setup()
 require("ultimate-autopair").setup()
 require("barbecue").setup()
 
+require("plugin_configurations.nvim_lint").setup()
+require("plugin_configurations.mason_null_ls").setup()
+require("plugin_configurations.mason").setup()
 require("plugin_configurations.gitsigns").setup()
 require("plugin_configurations.lua_line").setup()
 require("plugin_configurations.go").setup()
@@ -145,19 +156,17 @@ require("plugin_configurations.tokyonight").setup()
 -----------------
 vim.cmd [[colorscheme tokyonight-moon]]
 
+-----------------
+-- key mapping --
+-----------------
+opts_silent_noremap = { silent = true, noremap = true }
+vim.keymap.set('n', ',s', ':wa<CR>', opts_silent_noremap)
 
------------------
--- key mapping --
------------------
-opts_silent_noremap = { silent = true, noremap = true }
-vim.keymap.set('n', ',s', ':wa<CR>', opts_silent_noremap)
------------------
--- key mapping --
------------------
-opts_silent_noremap = { silent = true, noremap = true }
-vim.keymap.set('n', ',s', ':wa<CR>', opts_silent_noremap)
------------------
--- key mapping --
------------------
-opts_silent_noremap = { silent = true, noremap = true }
-vim.keymap.set('n', ',s', ':wa<CR>', opts_silent_noremap)
+------------------
+-- trigger lint --
+------------------
+vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
+    callback = function()
+        require("lint").try_lint()
+    end,
+})
