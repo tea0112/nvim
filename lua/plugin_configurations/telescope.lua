@@ -10,7 +10,7 @@ function M.setup()
                     ["<esc>"] = actions.close,
                 },
             },
-        }
+        },
     })
 end
 

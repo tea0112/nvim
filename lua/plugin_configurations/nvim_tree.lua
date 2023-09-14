@@ -6,7 +6,7 @@ function M.setup()
         view = {
             relativenumber = true,
             width = 30,
-            side = 'right'
+            side = "right",
         },
         renderer = {
             group_empty = true,
@@ -18,7 +18,7 @@ function M.setup()
         actions = {
             open_file = {
                 quit_on_open = true,
-            }
+            },
         },
     })
 end

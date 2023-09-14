@@ -1,5 +1,5 @@
 local M = {}
-local lint = require('lint')
+local lint = require("lint")
 -- local flake8 = lint.linters.flake8
 -- flake8.args = {
 --
@@ -7,7 +7,7 @@ local lint = require('lint')
 
 function M.setup()
     lint.linters_by_ft = {
-        python = { 'flake8', }
+        python = { "flake8" },
     }
 end
 

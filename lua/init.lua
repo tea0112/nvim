@@ -19,7 +19,10 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy plugins --
 ------------------
 require("lazy").setup({
-    'nvim-treesitter/nvim-treesitter',
+    {
+        "stevearc/conform.nvim",
+    },
+    "nvim-treesitter/nvim-treesitter",
     {
         "jay-babu/mason-null-ls.nvim",
         event = { "BufReadPre", "BufNewFile" },
@@ -28,7 +31,7 @@ require("lazy").setup({
             "jose-elias-alvarez/null-ls.nvim",
         },
     },
-    'mfussenegger/nvim-lint',
+    "mfussenegger/nvim-lint",
     "sindrets/diffview.nvim",
     "lewis6991/gitsigns.nvim",
     {
@@ -42,8 +45,8 @@ require("lazy").setup({
     },
 
     {
-        'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
     },
     {
         "folke/tokyonight.nvim",
@@ -51,21 +54,20 @@ require("lazy").setup({
         priority = 1000,
         opts = {},
     },
-    'mfussenegger/nvim-jdtls',
+    "mfussenegger/nvim-jdtls",
     {
-        'altermo/ultimate-autopair.nvim',
-        event = { 'InsertEnter', 'CmdlineEnter' },
-        branch = 'v0.6',
+        "altermo/ultimate-autopair.nvim",
+        event = { "InsertEnter", "CmdlineEnter" },
+        branch = "v0.6",
     },
     {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
         event = "VeryLazy",
-        config = function()
-        end
+        config = function() end,
     },
     {
-        'numToStr/Comment.nvim',
+        "numToStr/Comment.nvim",
         lazy = false,
     },
     "williamboman/mason-lspconfig.nvim",
@@ -74,26 +76,26 @@ require("lazy").setup({
         version = "*",
         dependencies = {
             "nvim-tree/nvim-web-devicons",
-        }
+        },
     },
     "rebelot/kanagawa.nvim",
     {
         "williamboman/mason.nvim",
-        build = ":MasonUpdate" -- :MasonUpdate updates registry contents
+        build = ":MasonUpdate", -- :MasonUpdate updates registry contents
     },
     "neovim/nvim-lspconfig",
     "folke/which-key.nvim",
-    { "folke/neoconf.nvim",   cmd = "Neoconf" },
+    { "folke/neoconf.nvim", cmd = "Neoconf" },
     "folke/neodev.nvim",
-    'neovim/nvim-lspconfig',    -- Collection of configurations for built-in LSP client
+    "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
     -- cmp
-    'hrsh7th/nvim-cmp',         -- Autocompletion plugin
-    'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
-    'hrsh7th/cmp-cmdline',
-    'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
-    'L3MON4D3/LuaSnip',         -- Snippets plugin
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
+    "hrsh7th/nvim-cmp", -- Autocompletion plugin
+    "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
+    "hrsh7th/cmp-cmdline",
+    "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
+    "L3MON4D3/LuaSnip", -- Snippets plugin
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
     --
     {
         "ray-x/go.nvim",
@@ -106,19 +108,19 @@ require("lazy").setup({
             require("go").setup()
         end,
         event = { "CmdlineEnter" },
-        ft = { "go", 'gomod' },
-        build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+        ft = { "go", "gomod" },
+        build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
     },
-    'mfussenegger/nvim-dap',
+    "mfussenegger/nvim-dap",
     { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
-    'theHamsta/nvim-dap-virtual-text',
+    "theHamsta/nvim-dap-virtual-text",
     {
-        'nvim-telescope/telescope.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' }
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
     },
-    'easymotion/vim-easymotion'
+    "easymotion/vim-easymotion",
 }, {
-    lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json"
+    lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
 })
 
 -------------------
@@ -140,6 +142,7 @@ require("nvim-surround").setup()
 require("ultimate-autopair").setup()
 require("barbecue").setup()
 
+require("plugin_configurations.conform").setup()
 require("plugin_configurations.nvim_treesitter_config").setup()
 require("plugin_configurations.nvim_lint").setup()
 require("plugin_configurations.mason_null_ls").setup()
@@ -156,13 +159,13 @@ require("plugin_configurations.tokyonight").setup()
 -----------------
 -- colorscheme --
 -----------------
-vim.cmd [[colorscheme tokyonight-moon]]
+vim.cmd([[colorscheme tokyonight-moon]])
 
 -----------------
 -- key mapping --
 -----------------
-opts_silent_noremap = { silent = true, noremap = true }
-vim.keymap.set('n', ',s', ':wa<CR>', opts_silent_noremap)
+OPTS_SILENT_NOREMAP = { silent = true, noremap = true }
+vim.keymap.set("n", ",s", ":wa<CR>", OPTS_SILENT_NOREMAP)
 
 ------------------
 -- trigger lint --
@@ -172,3 +175,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
         require("lint").try_lint()
     end,
 })
+
+------------------
+----- format -----
+------------------
