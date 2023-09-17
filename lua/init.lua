@@ -93,7 +93,11 @@ require("lazy").setup({
     "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
     "hrsh7th/cmp-cmdline",
     "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
-    "L3MON4D3/LuaSnip", -- Snippets plugin
+    {
+        "L3MON4D3/LuaSnip",
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp",
+    },
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "fatih/vim-go",
@@ -143,6 +147,7 @@ require("nvim-surround").setup()
 require("ultimate-autopair").setup()
 require("barbecue").setup()
 
+require("plugin_configurations.luasnip").setup()
 require("plugin_configurations.conform").setup()
 require("plugin_configurations.nvim_treesitter_config").setup()
 require("plugin_configurations.nvim_lint").setup()

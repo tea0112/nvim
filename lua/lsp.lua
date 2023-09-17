@@ -83,7 +83,3 @@ lspconfig.lua_ls.setup({
         },
     },
 })
-
-lspconfig.postgres_lsp.setup({
-    capabilities = capabilities,
-})

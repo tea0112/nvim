@@ -1,0 +1,7 @@
+{
+    "Goroutine function": {
+        "prefix": ["gof"],
+        "body": ["go func($1) {$0}($2)"],
+        "description": "goroutine function"
+    }
+}
