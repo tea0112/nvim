@@ -12,8 +12,9 @@ let mapleader=" "
 """""""""""""""""""
 map <Leader>sv :source $MYVIMRC<CR>
 map <Backspace> <C-6>
-map <Leader>e "+yy
 
+nnoremap - vd
+nnoremap <Leader>e "+yy
 nnoremap x "xx
 nnoremap <Leader>r "+p
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
