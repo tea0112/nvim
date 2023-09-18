@@ -141,7 +141,7 @@ vim.opt.termguicolors = true
 ------------------
 -- plugin setup --
 ------------------
-require("lsp")
+require("lsp").setup()
 require("Comment").setup()
 require("nvim-surround").setup()
 require("ultimate-autopair").setup()
