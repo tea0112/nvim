@@ -7,9 +7,11 @@ set completeopt=menu,menuone,noselect
 
 let mapleader=" "
 
-"""""""""""""""""""
-" normal mode map "
-"""""""""""""""""""
+"|"""""""""""""""""|
+"|     mapping     |
+"|"""""""""""""""""|
+cnoremap vh vert bo help 
+
 map <Leader>sv :source $MYVIMRC<CR>
 map <Backspace> <C-6>
 
