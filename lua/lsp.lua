@@ -108,6 +108,8 @@ function M.setup()
             },
         },
     })
+
+    lspconfig.bashls.setup({})
 end
 
 return M
