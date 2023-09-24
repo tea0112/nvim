@@ -1,6 +1,29 @@
 local M = {}
 
 function M.setup()
+    local border = {
+        { "🭽", "FloatBorder" },
+        { "▔", "FloatBorder" },
+        { "🭾", "FloatBorder" },
+        { "▕", "FloatBorder" },
+        { "🭿", "FloatBorder" },
+        { "▁", "FloatBorder" },
+        { "🭼", "FloatBorder" },
+        { "▏", "FloatBorder" },
+    }
+
+    local handlers = {
+        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+    }
+
+    vim.diagnostic.config({
+        virtual_text = {
+            prefix = "■ ", -- Could be '●', '▎', 'x', '■', , 
+        },
+        float = { border = border },
+    })
+
     local lspconfig = require("lspconfig")
 
     -- map lsp function
@@ -53,16 +76,15 @@ function M.setup()
     -- Add additional capabilities supported by nvim-cmp
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    lspconfig.pyright.setup({})
+    lspconfig.pyright.setup({ handlers = handlers })
 
     -- setup language server by lspconfig plugin
-    lspconfig.marksman.setup({})
+    lspconfig.marksman.setup({ handlers = handlers })
 
-    lspconfig.gopls.setup({
-        capabilities = capabilities,
-    })
+    lspconfig.gopls.setup({ handlers = handlers, capabilities = capabilities })
 
     lspconfig.lua_ls.setup({
+        handlers = handlers,
         capabilities = capabilities,
         settings = {
             Lua = {

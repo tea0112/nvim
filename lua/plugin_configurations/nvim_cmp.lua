@@ -7,11 +7,16 @@ end
 local M = {}
 
 function M.setup()
+    local lspkind = require("lspkind")
     -- luasnip setup
     local luasnip = require("luasnip")
     local cmp = require("cmp")
 
     cmp.setup({
+        window = {
+            completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered(),
+        },
         snippet = {
             expand = function(args)
                 luasnip.lsp_expand(args.body)

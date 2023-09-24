@@ -19,6 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy plugins --
 ------------------
 require("lazy").setup({
+    "onsails/lspkind.nvim",
     {
         "stevearc/conform.nvim",
     },
