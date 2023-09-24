@@ -19,6 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy plugins --
 ------------------
 require("lazy").setup({
+    "smoka7/hop.nvim",
     "onsails/lspkind.nvim",
     {
         "stevearc/conform.nvim",
@@ -124,7 +125,6 @@ require("lazy").setup({
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
     },
-    "easymotion/vim-easymotion",
 }, {
     lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
 })
@@ -148,6 +148,7 @@ require("nvim-surround").setup()
 require("ultimate-autopair").setup()
 require("barbecue").setup()
 
+require("plugin_configurations.hop").setup()
 require("plugin_configurations.luasnip").setup()
 require("plugin_configurations.conform").setup()
 require("plugin_configurations.nvim_treesitter_config").setup()
