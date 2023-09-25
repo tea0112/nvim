@@ -76,10 +76,10 @@ function M.setup()
     -- Add additional capabilities supported by nvim-cmp
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    lspconfig.pyright.setup({ handlers = handlers })
+    lspconfig.pyright.setup({ handlers = handlers, capabilities = capabilities })
 
     -- setup language server by lspconfig plugin
-    lspconfig.marksman.setup({ handlers = handlers })
+    lspconfig.marksman.setup({ handlers = handlers, capabilities = capabilities })
 
     lspconfig.gopls.setup({ handlers = handlers, capabilities = capabilities })
 
@@ -110,6 +110,11 @@ function M.setup()
     })
 
     lspconfig.bashls.setup({
+        handlers = handlers,
+    })
+
+    lspconfig.clangd.setup({
+        capabilities = capabilities,
         handlers = handlers,
     })
 end
