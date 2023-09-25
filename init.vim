@@ -10,11 +10,10 @@ let mapleader=" "
 "|"""""""""""""""""|
 "|     mapping     |
 "|"""""""""""""""""|
-cnoremap h vert bo help 
-
 map <Leader>sv :source $MYVIMRC<CR>
 map <Backspace> <C-6>
 
+nnoremap ,h :vert bo help 
 nnoremap <A-h> <c-w>h
 nnoremap <A-j> <c-w>j
 nnoremap <A-k> <c-w>k
@@ -28,11 +27,6 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <C-n> <CMD>NvimTreeToggle<CR>
-" nmap f <Leader><Leader>f
-" nmap F <Leader><Leader>F
-
-" vmap f <Leader><Leader>f
-" vmap F <Leader><Leader>F
 
 imap jk <Esc>
 imap <C-n> :Explore<CR>
