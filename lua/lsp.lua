@@ -109,7 +109,9 @@ function M.setup()
         },
     })
 
-    lspconfig.bashls.setup({})
+    lspconfig.bashls.setup({
+        handlers = handlers,
+    })
 end
 
 return M
