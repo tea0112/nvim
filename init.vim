@@ -10,7 +10,7 @@ let mapleader=" "
 "|"""""""""""""""""|
 "|     mapping     |
 "|"""""""""""""""""|
-cnoremap vh vert bo help 
+cnoremap h vert bo help 
 
 map <Leader>sv :source $MYVIMRC<CR>
 map <Backspace> <C-6>
