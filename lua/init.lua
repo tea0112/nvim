@@ -54,7 +54,6 @@ require("lazy").setup({
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
-        opts = {},
     },
     "mfussenegger/nvim-jdtls",
     {
@@ -167,7 +166,7 @@ require("plugin_configurations.tokyonight").setup()
 -----------------
 -- colorscheme --
 -----------------
-vim.cmd([[colorscheme tokyonight-moon]])
+vim.cmd([[colorscheme tokyonight]])
 
 -----------------
 -- key mapping --
