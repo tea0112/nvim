@@ -15,6 +15,10 @@ cnoremap h vert bo help
 map <Leader>sv :source $MYVIMRC<CR>
 map <Backspace> <C-6>
 
+nnoremap <A-h> <c-w>h
+nnoremap <A-j> <c-w>j
+nnoremap <A-k> <c-w>k
+nnoremap <A-l> <c-w>l
 nnoremap - vd
 nnoremap <Leader>e "+yy
 nnoremap x "xx
