@@ -2,6 +2,7 @@ local M = {}
 
 function M.setup()
     require("lazy").setup({
+        { "lukas-reineke/indent-blankline.nvim" },
         -- A simple popup display that provides breadcrumbs feature using LSP server
         {
             "neovim/nvim-lspconfig",
