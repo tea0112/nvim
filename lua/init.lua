@@ -81,5 +81,10 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
 })
 
 ------------------
------ format -----
+--    format    --
 ------------------
+
+-----------------------------------
+--        config after           --
+-----------------------------------
+vim.cmd([[ highlight LineNr guibg=#0a0047 ]])
