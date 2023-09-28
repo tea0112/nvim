@@ -1,3 +1,4 @@
+let g:neovide_scale_factor = 1.5
 set ignorecase
 set relativenumber
 set number
