@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
     require("tokyonight").setup({
-        transparent = true,
+        -- transparent = true,
         style = "moon",
         light_style = "moon",
         terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
