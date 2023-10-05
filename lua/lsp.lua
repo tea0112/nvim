@@ -63,12 +63,6 @@ function M.setup()
         end,
     })
 
-    --------------
-    -- nvim-cmp --
-    --------------
-
-    require("plugin_configurations.nvim_cmp").setup()
-
     ---------------------------
     -- language server setup --
     ---------------------------

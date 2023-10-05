@@ -1,11 +1,6 @@
 ----------------------------------
 --           config             --
 ----------------------------------
-
-----------------------------------
--- lazy package manager section --
-----------------------------------
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -22,7 +17,65 @@ vim.opt.rtp:prepend(lazypath)
 ------------------
 -- lazy plugins --
 ------------------
-require("plugin_configurations.lazy").setup()
+require("lazy").setup({
+    { import = "plugins" },
+    -- A simple popup display that provides breadcrumbs feature using LSP server
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            {
+                "SmiteshP/nvim-navbuddy",
+                dependencies = {
+                    "SmiteshP/nvim-navic",
+                    "MunifTanjim/nui.nvim",
+                },
+                opts = { lsp = { auto_attach = true } },
+            },
+        },
+    },
+    "onsails/lspkind.nvim",
+    "sindrets/diffview.nvim",
+    {
+        "utilyre/barbecue.nvim",
+        name = "barbecue",
+        version = "*",
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+    },
+    "mfussenegger/nvim-jdtls",
+    {
+        "altermo/ultimate-autopair.nvim",
+        event = { "InsertEnter", "CmdlineEnter" },
+        branch = "v0.6",
+    },
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function() end,
+    },
+    {
+        "numToStr/Comment.nvim",
+        lazy = false,
+    },
+    "neovim/nvim-lspconfig",
+    "folke/which-key.nvim",
+    { "folke/neoconf.nvim", cmd = "Neoconf" },
+    "folke/neodev.nvim",
+    "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
+    -- cmp
+    "mfussenegger/nvim-dap",
+    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
+    "theHamsta/nvim-dap-virtual-text",
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
+}, {
+    lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
+})
 
 -------------------
 -- for nvim tree --
@@ -42,23 +95,6 @@ require("Comment").setup()
 require("nvim-surround").setup()
 require("ultimate-autopair").setup()
 require("barbecue").setup()
-
--- require("plugin_configurations.indent_blankline").setup()
-require("plugin_configurations.hop").setup()
-require("plugin_configurations.luasnip").setup()
-require("plugin_configurations.conform").setup()
-require("plugin_configurations.nvim_treesitter_config").setup()
-require("plugin_configurations.nvim_lint").setup()
-require("plugin_configurations.mason_null_ls").setup()
-require("plugin_configurations.mason").setup()
-require("plugin_configurations.gitsigns").setup()
-require("plugin_configurations.lua_line").setup()
-require("plugin_configurations.go").setup()
-require("plugin_configurations.kanagawa").setup()
-require("plugin_configurations.mason_lsp_config").setup()
-require("plugin_configurations.nvim_tree").setup()
-require("plugin_configurations.telescope").setup()
-require("plugin_configurations.tokyonight").setup()
 
 -----------------
 -- colorscheme --
