@@ -8,7 +8,7 @@ return {
             sort_by = "case_sensitive",
             view = {
                 relativenumber = true,
-                width = 30,
+                width = 40,
                 side = "right",
             },
             renderer = {
