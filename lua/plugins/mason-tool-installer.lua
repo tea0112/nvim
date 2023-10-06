@@ -11,6 +11,7 @@ return {
                 "pyright",
                 "clangd",
                 "bash-language-server",
+                "lua-language-server",
                 "stylua",
                 "flake8",
                 "shellcheck",

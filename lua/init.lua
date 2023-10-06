@@ -106,18 +106,18 @@ vim.cmd([[colorscheme tokyonight]])
 -----------------
 OPTS_SILENT_NOREMAP = { silent = true, noremap = true }
 vim.keymap.set("n", ",s", ":wa<CR>", OPTS_SILENT_NOREMAP)
-vim.keymap.set(
-    "n",
-    "<C-d>",
-    "<C-d>zz",
-    { silent = true, noremap = true, desc = "Center cursor after moving down half-page" }
-)
-vim.keymap.set(
-    "n",
-    "<C-u>",
-    "<C-u>zz",
-    { silent = true, noremap = true, desc = "Center cursor after moving down half-page" }
-)
+-- vim.keymap.set(
+--     "n",
+--     "<C-d>",
+--     "<C-d>zz",
+--     { silent = true, noremap = true, desc = "Center cursor after moving down half-page" }
+-- )
+-- vim.keymap.set(
+--     "n",
+--     "<C-u>",
+--     "<C-u>zz",
+--     { silent = true, noremap = true, desc = "Center cursor after moving down half-page" }
+-- )
 
 ------------------
 -- trigger lint --
