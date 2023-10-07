@@ -30,7 +30,7 @@ return {
 
         hop.setup({
             -- keys = "etovxqpdygfblzhckisuran",
-            keys = "asdfjklghtovxqpybzciurn",
+            keys = "fdsjklaweriopghtvxqybzcurn",
         })
     end,
 }
