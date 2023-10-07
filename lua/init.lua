@@ -61,7 +61,6 @@ require("lazy").setup({
         lazy = false,
     },
     "neovim/nvim-lspconfig",
-    "folke/which-key.nvim",
     { "folke/neoconf.nvim", cmd = "Neoconf" },
     "folke/neodev.nvim",
     "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
@@ -106,8 +105,6 @@ vim.cmd([[colorscheme tokyonight]])
 -----------------
 OPTS_SILENT_NOREMAP = { silent = true, noremap = true }
 vim.keymap.set("n", ",s", ":wa<CR>", OPTS_SILENT_NOREMAP)
-vim.keymap.set("n", "<leader>o", 'o<esc>0"_D', OPTS_SILENT_NOREMAP)
-vim.keymap.set("n", "<leader>O", 'O<esc>0"_D', OPTS_SILENT_NOREMAP)
 -- vim.keymap.set(
 --     "n",
 --     "<C-d>",
