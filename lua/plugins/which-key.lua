@@ -13,6 +13,22 @@ return {
                 o = { 'o<esc>0"_D', "Down" },
                 O = { 'O<esc>0"_D', "Up" },
             },
+            r = {
+                name = "Lsp",
+                r = { '<cmd>lua require("trouble").toggle("lsp_references")<cr>', "References" },
+            },
+            x = {
+                name = "Trouble",
+                x = { "<cmd>lua require('trouble').toggle()<cr>", "Toggle trouble" },
+                w = { '<cmd>lua require("trouble").toggle("workspace_diagnostics")<cr>', "Workspace diagnostics" },
+                d = { '<cmd>lua require("trouble").toggle("document_diagnostics")<cr>', "Document diagnostics" },
+                q = { '<cmd>lua require("trouble").toggle("quickfix")<cr>', "Quickfix" },
+                l = { '<cmd>lua require("trouble").toggle("loclist")<cr>', "Loc List" },
+            },
+            w = {
+                name = "Window",
+                q = { "<c-w>c", "Close window" },
+            },
         }, {
             mode = "n", -- NORMAL mode
             -- prefix: use "<leader>f" for example for mapping everything related to finding files
