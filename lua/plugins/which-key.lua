@@ -13,6 +13,10 @@ return {
                 o = { 'o<esc>0"_D', "Down" },
                 O = { 'O<esc>0"_D', "Up" },
             },
+            n = {
+                name = "Navbuddy",
+                v = { "<cmd>Navbuddy<cr>", "Open" },
+            },
             r = {
                 name = "Lsp",
                 r = { '<cmd>lua require("trouble").toggle("lsp_references")<cr>', "References" },
