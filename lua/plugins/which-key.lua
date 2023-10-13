@@ -3,6 +3,10 @@ return {
     config = function()
         local wk = require("which-key")
         wk.register({
+            a = {
+                name = "Copy",
+                a = { "ggVG", "All" },
+            },
             d = {
                 name = "Diffview plugin",
                 o = { "<cmd>DiffviewOpen<cr>", "Open Git Diff View" },
