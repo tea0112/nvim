@@ -24,6 +24,41 @@ if not utils.file_exists(db_container_info) then
     end
 
     vim.notify('created ".db_container_info.toml" at HOME dir')
+    vim.notify("please restart!", vim.log.levels.WARN)
+end
+
+local file = io.open(home_dir .. "/.db_container_info.toml", "r")
+local toml_container_info_file = file:read("*a")
+
+local TOML = require("libs.toml")
+TOML.strict = false
+local parsed_container_info = TOML.parse(toml_container_info_file)
+
+local error_exists = false
+if parsed_container_info["database"]["type"] == nil or parsed_container_info["database"]["type"] == "" then
+    vim.notify("database type isn't specified", vim.log.levels.ERROR)
+    error_exists = true
+end
+if
+    parsed_container_info["database"]["container_name"] == nil
+    or parsed_container_info["database"]["container_name"] == ""
+then
+    vim.notify("database container_name isn't specified", vim.log.levels.ERROR)
+    error_exists = true
+end
+if parsed_container_info["database"]["username"] == nil or parsed_container_info["database"]["username"] == "" then
+    vim.notify("database username isn't specified", vim.log.levels.ERROR)
+    error_exists = true
+end
+if
+    parsed_container_info["database"]["database_name"] == nil
+    or parsed_container_info["database"]["database_name"] == ""
+then
+    vim.notify("database database_name isn't specified", vim.log.levels.ERROR)
+    error_exists = true
+end
+if error_exists == true then
+    return
 end
 
 vim.keymap.set("x", "<leader>ss", function()
@@ -59,12 +94,12 @@ vim.keymap.set("x", "<leader>ss", function()
         args = {
             "exec",
             "-i",
-            "postgresql-container-friction_postgres-1",
+            parsed_container_info["database"]["container_name"],
             "psql",
             "-U",
-            "friction",
+            parsed_container_info["database"]["username"],
             "-d",
-            "friction",
+            parsed_container_info["database"]["database_name"],
         },
         stdio = { stdin, stdout, stderr },
         function(code, signal)
