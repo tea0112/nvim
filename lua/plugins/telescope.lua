@@ -8,6 +8,7 @@ return {
                 mappings = {
                     i = {
                         ["<esc>"] = actions.close,
+                        ["<c-d>"] = require("telescope.actions").delete_buffer,
                     },
                 },
             },

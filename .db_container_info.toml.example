@@ -1,0 +1,6 @@
+[database]
+# psql
+type = ""
+container_name = ""
+username = ""
+database_name = ""

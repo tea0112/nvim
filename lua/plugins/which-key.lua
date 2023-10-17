@@ -25,6 +25,10 @@ return {
                 name = "Lsp",
                 r = { '<cmd>lua require("trouble").toggle("lsp_references")<cr>', "References" },
             },
+            q = {
+                name = "Quit",
+                q = { "<cmd>qa!<cr>", "All without save" },
+            },
             x = {
                 name = "Trouble",
                 x = { "<cmd>lua require('trouble').toggle()<cr>", "Toggle trouble" },
@@ -35,7 +39,8 @@ return {
             },
             w = {
                 name = "Window",
-                q = { "<c-w>c", "Close window" },
+                w = { "<c-w>c", "Close window" },
+                q = { "<cmd>bd!<cr>", "Force closing buffer" },
             },
         }, {
             mode = "n", -- NORMAL mode
