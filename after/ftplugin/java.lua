@@ -2,7 +2,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 
-print("loading java lsp...")
+vim.notify("loading java lsp...")
 
 local nvim_data_dir = vim.fn.stdpath("data")
 local mason_package_dir = nvim_data_dir .. "/mason/packages"
