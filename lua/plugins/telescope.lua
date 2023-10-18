@@ -11,6 +11,9 @@ return {
                         ["<c-d>"] = require("telescope.actions").delete_buffer,
                     },
                 },
+                -- file_ignore_patterns = {
+                --     { ".git/" },
+                -- },
             },
         })
     end,

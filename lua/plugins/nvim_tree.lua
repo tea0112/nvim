@@ -3,20 +3,21 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
+    -- Toggle via |nvim-tree-api.tree.toggle_hidden_filter()|, default `H`
     config = function()
         require("nvim-tree").setup({
             sort_by = "case_sensitive",
             view = {
                 relativenumber = true,
                 width = 40,
-                side = "right",
+                -- side = "right",
             },
             renderer = {
                 group_empty = true,
                 full_name = true,
             },
             filters = {
-                dotfiles = true,
+                dotfiles = false,
             },
             actions = {
                 open_file = {
