@@ -2,9 +2,9 @@ let g:neovide_scale_factor = 1.5
 set ignorecase
 set relativenumber
 set number
-set nohlsearch
 set tabstop=4 shiftwidth=4 expandtab softtabstop=4
 set completeopt=menu,menuone,noselect
+" set nohlsearch
 
 let mapleader=" "
 
