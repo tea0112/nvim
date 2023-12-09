@@ -95,19 +95,7 @@ OPTS_SILENT_NOREMAP = { silent = true, noremap = true }
 vim.keymap.set("n", "<c-l>", "<cmd>set hlsearch!<cr>", OPTS_SILENT_NOREMAP)
 vim.keymap.set("n", ",s", ":wa<CR>", OPTS_SILENT_NOREMAP)
 vim.keymap.set({ "n", "v" }, "<a-p>", '"0p', OPTS_SILENT_NOREMAP)
-vim.keymap.set({ "n", "v" }, "<a-s-p>", '"0p', OPTS_SILENT_NOREMAP)
--- vim.keymap.set(
---     "n",
---     "<C-d>",
---     "<C-d>zz",
---     { silent = true, noremap = true, desc = "Center cursor after moving down half-page" }
--- )
--- vim.keymap.set(
---     "n",
---     "<C-u>",
---     "<C-u>zz",
---     { silent = true, noremap = true, desc = "Center cursor after moving down half-page" }
--- )
+vim.keymap.set({ "n", "v" }, "<a-s-p>", '"xp', OPTS_SILENT_NOREMAP)
 
 ------------------
 -- trigger lint --
