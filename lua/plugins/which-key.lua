@@ -6,6 +6,8 @@ return {
             a = {
                 name = "Copy",
                 a = { "ggVG", "All" },
+                e = { 'ggVG"+y', "All" },
+                r = { 'ggVG"+p', "All" },
             },
             d = {
                 name = "Diffview plugin",
