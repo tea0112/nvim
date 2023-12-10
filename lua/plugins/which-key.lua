@@ -5,9 +5,9 @@ return {
         wk.register({
             a = {
                 name = "Copy",
-                a = { "ggVG", "All" },
-                e = { 'ggVG"+y', "All" },
-                r = { 'ggVG"+p', "All" },
+                a = { "ggVG", "Select All" },
+                e = { 'ggVG"+y', "Copy All to System Register" },
+                r = { 'ggVG"+p', "Paste All to System Registe" },
             },
             d = {
                 name = "Diffview plugin",
