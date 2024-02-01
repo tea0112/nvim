@@ -7,7 +7,7 @@ return {
                 name = "Copy",
                 a = { "ggVG", "Select All" },
                 e = { 'ggVG"+y', "Copy All to System Register" },
-                r = { 'ggVG"+p', "Paste All to System Registe" },
+                r = { 'ggVG"+p', "Paste All to System Register" },
             },
             d = {
                 name = "Diffview plugin",
