@@ -69,6 +69,7 @@ function M.setup()
 
     -- Add additional capabilities supported by nvim-cmp
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     lspconfig.pyright.setup({ handlers = handlers, capabilities = capabilities })
 
@@ -104,10 +105,16 @@ function M.setup()
     })
 
     lspconfig.bashls.setup({
+        capabilities = capabilities,
         handlers = handlers,
     })
 
     lspconfig.clangd.setup({
+        capabilities = capabilities,
+        handlers = handlers,
+    })
+
+    lspconfig.html.setup({
         capabilities = capabilities,
         handlers = handlers,
     })
