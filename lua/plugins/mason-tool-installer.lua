@@ -5,6 +5,8 @@ return {
             -- a list of all tools you want to ensure are installed upon
             -- start; they should be the names Mason uses for each tool
             ensure_installed = {
+                "prettier",
+                "prettierd",
                 "html-lsp",
                 "rust-analyzer",
                 "marksman",
