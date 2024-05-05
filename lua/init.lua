@@ -63,7 +63,9 @@ require("lazy").setup({
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
     },
-}, {})
+}, {
+    lockfile = "~/dotfiles/.config/nvim/lazy-lock.json", -- lockfile generated after running update.
+})
 
 -------------------
 -- for nvim tree --
