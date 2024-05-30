@@ -71,8 +71,8 @@ require("lazy").setup({
 -- for nvim tree --
 -------------------
 -- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 ------------------
 -- plugin setup --
@@ -92,6 +92,7 @@ vim.cmd([[colorscheme tokyonight]])
 -- key mapping --
 -----------------
 OPTS_SILENT_NOREMAP = { silent = true, noremap = true }
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<c-l>", "<cmd>set hlsearch!<cr>", OPTS_SILENT_NOREMAP)
 vim.keymap.set("n", ",s", ":wa<CR>", OPTS_SILENT_NOREMAP)
 vim.keymap.set({ "n", "v" }, "<a-p>", '"0p', OPTS_SILENT_NOREMAP)
