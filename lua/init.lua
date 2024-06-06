@@ -106,7 +106,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
         require("lint").try_lint()
     end,
 })
--- go.nvim
+
 -- Format on save
 -- local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
 -- vim.api.nvim_create_autocmd("BufWritePre", {
