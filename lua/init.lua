@@ -107,18 +107,15 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
     end,
 })
 -- go.nvim
-local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*.go",
-    callback = function()
-        require("go.format").goimports()
-    end,
-    group = format_sync_grp,
-})
-
-------------------
---    format    --
-------------------
+-- Format on save
+-- local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--     pattern = "*.go",
+--     callback = function()
+--         require("go.format").goimports()
+--     end,
+--     group = format_sync_grp,
+-- })
 
 -----------------------------------
 --        config after           --
