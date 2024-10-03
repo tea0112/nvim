@@ -14,10 +14,10 @@ function M.setup()
 
     local handlers = {
         ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-            -- border = border
+            border = border
         }),
         ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-            -- border = border
+            border = border
         }),
     }
 
@@ -26,7 +26,7 @@ function M.setup()
             prefix = "■ ", -- Could be '●', '▎', 'x', '■', , 
         },
         float = {
-            -- border = border
+            border = border
         },
     })
 
