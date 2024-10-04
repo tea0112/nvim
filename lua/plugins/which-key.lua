@@ -26,6 +26,7 @@ return {
             r = {
                 name = "Lsp",
                 r = { '<cmd>lua require("trouble").toggle("lsp_references")<cr>', "References" },
+                i = {'<cmd>GoImplements<cr>', "Go Implements"}
             },
             q = {
                 name = "Quit",
