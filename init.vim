@@ -40,7 +40,7 @@ vnoremap <Leader>r "+p
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
-" map nvim tabline
+" map fast tab index
 noremap <leader>1 1gt
 noremap <leader>2 2gt
 noremap <leader>3 3gt

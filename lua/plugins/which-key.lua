@@ -42,10 +42,10 @@ return {
             },
             w = {
                 name = "Window",
-                a = { "<cmd>:qa!<cr>", "Force quit all" },
-                s = { "<cmd>:wq!<cr>", "Force saving all and quit" },
+                a = { "<cmd>bd!<cr>", "Force closing buffer" },
+                s = { "<cmd>:wq!<cr>", "Force quit all and save all" },
                 w = { "<c-w>c", "Close window" },
-                q = { "<cmd>bd!<cr>", "Force closing buffer" },
+                q = { "<cmd>:qa!<cr>", "Force quit all without saving" },
             },
         }, {
             mode = "n", -- NORMAL mode
