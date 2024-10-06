@@ -97,6 +97,9 @@ vim.keymap.set("n", "<c-l>", "<cmd>set hlsearch!<cr>", OPTS_SILENT_NOREMAP)
 vim.keymap.set("n", ",s", ":wa<CR>", OPTS_SILENT_NOREMAP)
 vim.keymap.set({ "n", "v" }, "<a-p>", '"0p', OPTS_SILENT_NOREMAP)
 vim.keymap.set({ "n", "v" }, "<a-s-p>", '"xp', OPTS_SILENT_NOREMAP)
+-- map gj gk
+vim.keymap.set({ "n", "v" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+vim.keymap.set({ "n", "v" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 ------------------
 -- trigger lint --
