@@ -20,9 +20,9 @@ nnoremap <A-j> <c-w>j
 nnoremap <A-k> <c-w>k
 nnoremap <A-l> <c-w>l
 nnoremap - vd
-nnoremap <Leader>e "+yy
 nnoremap x "xx
-nnoremap <Leader>r "+p
+nnoremap <C-y> "+yy
+nnoremap <C-p> "+p
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
@@ -33,8 +33,8 @@ imap jk <Esc>
 imap <C-n> :Explore<CR>
 
 vnoremap x "xx
-vnoremap <Leader>e "+y
-vnoremap <Leader>r "+p
+vnoremap <C-y> "+y
+vnoremap <C-p> "+p
 
 " Map gj gk
 inoremap <Down> <C-o>gj
