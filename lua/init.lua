@@ -94,6 +94,7 @@ vim.cmd([[colorscheme tokyonight]])
 OPTS_SILENT_NOREMAP = { silent = true, noremap = true }
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<c-l>", "<cmd>set hlsearch!<cr>", OPTS_SILENT_NOREMAP)
+vim.keymap.set("i", "<c-l>", "<cmd>set hlsearch!<cr>", OPTS_SILENT_NOREMAP)
 vim.keymap.set("n", ",s", ":wa<CR>", OPTS_SILENT_NOREMAP)
 vim.keymap.set({ "n", "v" }, "<a-p>", '"0p', OPTS_SILENT_NOREMAP)
 vim.keymap.set({ "n", "v" }, "<a-s-p>", '"xp', OPTS_SILENT_NOREMAP)
