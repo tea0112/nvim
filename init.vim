@@ -28,6 +28,8 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " nnoremap <C-n> <CMD>NvimTreeToggle<CR>
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
 
 imap jk <Esc>
 imap <C-n> :Explore<CR>
