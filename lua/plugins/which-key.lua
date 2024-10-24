@@ -22,6 +22,10 @@ return {
                 o = { 'o<esc>0"_D', "Down" },
                 O = { 'O<esc>0"_D', "Up" },
             },
+            l = {
+                name = "conform",
+                f = { '<cmd>lua require("conform").format({ bufnr = 0, async = true, lsp_fallback = true })<cr>', "conform nvim format" }
+            },
             n = {
                 name = "Navbuddy",
                 v = { "<cmd>Navbuddy<cr>", "Open" },
