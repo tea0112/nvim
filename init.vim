@@ -35,8 +35,8 @@ imap jk <Esc>
 imap <C-n> :Explore<CR>
 
 vnoremap x "xx
-vnoremap <leader>yy "+y
-vnoremap <leader>pp "+p
+vnoremap <leader>jj "+y
+vnoremap <leader>kk "+p
 
 " Map gj gk
 inoremap <Down> <C-o>gj
