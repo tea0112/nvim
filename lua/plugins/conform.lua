@@ -24,6 +24,11 @@ return {
                 --     command = "jq",
                 -- },
             },
+            -- Use a specific prettier parser for a filetype
+            -- Otherwise, prettier will try to infer the parser from the file name
+            ft_parsers = {
+                graphql = "graphql",
+            },
         })
     end,
 }
