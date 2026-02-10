@@ -93,8 +93,19 @@ vim.cmd([[colorscheme tokyonight]])
 -----------------
 OPTS_SILENT_NOREMAP = { silent = true, noremap = true }
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-vim.keymap.set("n", "<c-l>", "<cmd>set hlsearch!<cr>", OPTS_SILENT_NOREMAP)
-vim.keymap.set("i", "<c-l>", "<cmd>set hlsearch!<cr>", OPTS_SILENT_NOREMAP)
+-- vim.keymap.set("n", "<c-l>", "<cmd>set hlsearch!<cr>", OPTS_SILENT_NOREMAP)
+-- vim.keymap.set("i", "<c-l>", "<cmd>set hlsearch!<cr>", OPTS_SILENT_NOREMAP)
+
+local opts = { noremap = true, silent = true }
+-- 1. Normal Mode: Space + t + h
+vim.keymap.set("n", "<leader>th", function()
+    vim.opt.hlsearch = not vim.opt.hlsearch:get()
+end, vim.tbl_extend("force", opts, { desc = "Toggle hlsearch" }))
+-- 2. Insert Mode: Alt + t
+vim.keymap.set("i", "<M-t>", function()
+    vim.opt.hlsearch = not vim.opt.hlsearch:get()
+end, vim.tbl_extend("force", opts, { desc = "Toggle hlsearch" }))
+
 vim.keymap.set("n", ",s", ":wa<CR>", OPTS_SILENT_NOREMAP)
 vim.keymap.set({ "n", "v" }, "<a-p>", '"0p', OPTS_SILENT_NOREMAP)
 vim.keymap.set({ "n", "v" }, "<a-s-p>", '"xp', OPTS_SILENT_NOREMAP)
