@@ -12,15 +12,6 @@ function M.setup()
         { "▏", "FloatBorder" },
     }
 
-    local handlers = {
-        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-            border = border,
-        }),
-        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-            border = border,
-        }),
-    }
-
     vim.diagnostic.config({
         virtual_text = {
             prefix = "■ ", -- Could be '●', '▎', 'x', '■', , 
@@ -29,9 +20,6 @@ function M.setup()
             border = border,
         },
     })
-
-    local lspconfig = require("lspconfig")
-
     -- map lsp function
     vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
@@ -51,9 +39,13 @@ function M.setup()
             local opts = { buffer = ev.buf }
             vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+            vim.keymap.set("n", "K", function()
+                vim.lsp.buf.hover({ border = border })
+            end, opts)
             -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-            vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
+            vim.keymap.set("i", "<C-k>", function()
+                vim.lsp.buf.signature_help({ border = border })
+            end, opts)
             vim.keymap.set("n", "<space>wf", vim.lsp.buf.add_workspace_folder, opts)
             vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
             vim.keymap.set("n", "<space>wl", function()
@@ -80,15 +72,19 @@ function M.setup()
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-    lspconfig.pyright.setup({ handlers = handlers, capabilities = capabilities })
+    local function enable(server, config)
+        vim.lsp.config(server, config or {})
+        vim.lsp.enable(server)
+    end
+
+    enable("pyright", { capabilities = capabilities })
 
     -- setup language server by lspconfig plugin
-    lspconfig.marksman.setup({ handlers = handlers, capabilities = capabilities })
+    enable("marksman", { capabilities = capabilities })
 
-    lspconfig.gopls.setup({ handlers = handlers, capabilities = capabilities })
+    enable("gopls", { capabilities = capabilities })
 
-    lspconfig.lua_ls.setup({
-        handlers = handlers,
+    enable("lua_ls", {
         capabilities = capabilities,
         settings = {
             Lua = {
@@ -113,23 +109,22 @@ function M.setup()
         },
     })
 
-    lspconfig.bashls.setup({
+    enable("bashls", {
         capabilities = capabilities,
-        handlers = handlers,
     })
 
-    lspconfig.clangd.setup({
+    enable("clangd", {
         capabilities = capabilities,
-        handlers = handlers,
     })
 
-    lspconfig.html.setup({
+    enable("html", {
         capabilities = capabilities,
-        handlers = handlers,
     })
 
-    lspconfig.graphql.setup({
-        root_dir = lspconfig.util.root_pattern(".graphqlconfig", ".graphqlrc", "package.json"),
+    enable("graphql", {
+        root_dir = function(bufnr, on_dir)
+            on_dir(vim.fs.root(bufnr, { ".graphqlconfig", ".graphqlrc", "package.json" }))
+        end,
         flags = {
             debounce_text_changes = 150,
         },
