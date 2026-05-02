@@ -11,48 +11,7 @@ let mapleader=" "
 "|"""""""""""""""""|
 "|     mapping     |
 "|"""""""""""""""""|
-map <Leader>sv :source $MYVIMRC<CR>
-map <Backspace> <C-6>
-
-nnoremap ,h :vert bo help 
-nnoremap <A-h> <c-w>h
-nnoremap <A-j> <c-w>j
-nnoremap <A-k> <c-w>k
-nnoremap <A-l> <c-w>l
-nnoremap - vd
-nnoremap x "xx
-nnoremap <leader>yy "+yy
-nnoremap <leader>pp "+p
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-" nnoremap <C-n> <CMD>NvimTreeToggle<CR>
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-
-imap jk <Esc>
-imap <C-n> :Explore<CR>
-
-vnoremap x "xx
-vnoremap <leader>jj "+y
-vnoremap <leader>kk "+p
-
-" Map gj gk
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
-
-" map fast tab index
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
+" Mappings are set in lua/init.lua so each one can have a description.
 
 lua << EOF
     require("init")

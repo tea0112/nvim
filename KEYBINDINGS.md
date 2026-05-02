@@ -1,0 +1,354 @@
+# Neovim Keybindings
+
+## Generated keymaps
+
+_This section is generated from current Neovim keymaps. Do not edit inside this block._
+
+### Normal
+
+| Key | Description | Command |
+|---|---|---|
+| ` 0` | Go to last tab | `:tablast<CR>` |
+| ` 1` | Go to tab 1 | `1gt` |
+| ` 2` | Go to tab 2 | `2gt` |
+| ` 3` | Go to tab 3 | `3gt` |
+| ` 4` | Go to tab 4 | `4gt` |
+| ` 5` | Go to tab 5 | `5gt` |
+| ` 6` | Go to tab 6 | `6gt` |
+| ` 7` | Go to tab 7 | `7gt` |
+| ` 8` | Go to tab 8 | `8gt` |
+| ` 9` | Go to tab 9 | `9gt` |
+| ` aa` | Select all | `ggVG` |
+| ` ae` | Copy all to system clipboard | `ggVG"+y` |
+| ` ar` | Paste system clipboard over whole buffer | `ggVG"+p` |
+| ` dc` | Close Git diff view | `<Cmd>DiffviewClose<CR>` |
+| ` do` | Open Git diff view | `<Cmd>DiffviewOpen<CR>` |
+| ` e` | Show diagnostic float | `<Lua callback>` |
+| ` fb` | Find open buffers | `<Cmd>Telescope buffers<CR>` |
+| ` ff` | Find files | `<Cmd>Telescope find_files<CR>` |
+| ` fg` | Search text in files | `<Cmd>Telescope live_grep<CR>` |
+| ` fh` | Search help tags | `<Cmd>Telescope help_tags<CR>` |
+| ` ke` | Edit keybinding note | `<Lua callback>` |
+| ` kg` | Generate keybinding note | `<Lua callback>` |
+| ` lf` | Format buffer with conform | `<Cmd>lua require("conform").format({ bufnr = 0, async = true, lsp_fallback = true })<CR>` |
+| ` nv` | Open Navbuddy | `<Cmd>Navbuddy<CR>` |
+| ` oO` | Insert empty line above | `O<Esc>0"_D` |
+| ` oo` | Insert empty line below | `o<Esc>0"_D` |
+| ` pp` | Paste from system clipboard | `"+p` |
+| ` q` | Send diagnostics to location list | `<Lua callback>` |
+| ` ri` | Show Go implementations | `<Cmd>GoImplements<CR>` |
+| ` rr` | Show LSP references | `<Cmd>lua require("trouble").toggle("lsp_references")<CR>` |
+| ` sv` | Source Neovim config | `:source $MYVIMRC<CR>` |
+| ` ta` | Open new tab | `:$tabnew<CR>` |
+| ` tc` | Close current tab | `:tabclose<CR>` |
+| ` th` | Toggle search highlight | `<Lua callback>` |
+| ` tmn` | Move tab right | `:+tabmove<CR>` |
+| ` tmp` | Move tab left | `:-tabmove<CR>` |
+| ` tn` | Go to next tab | `:tabn<CR>` |
+| ` to` | Close other tabs | `:tabonly<CR>` |
+| ` tp` | Go to previous tab | `:tabp<CR>` |
+| ` wa` | Force close buffer | `<Cmd>bd!<CR>` |
+| ` wq` | Force quit all without saving | `<Cmd>:qa!<CR>` |
+| ` ws` | Force save and quit | `<Cmd>:wq!<CR>` |
+| ` ww` | Close window | `<C-W>c` |
+| ` xd` | Show document diagnostics | `<Cmd>lua require("trouble").toggle("document_diagnostics")<CR>` |
+| ` xl` | Show location list | `<Cmd>lua require("trouble").toggle("loclist")<CR>` |
+| ` xq` | Show quickfix list | `<Cmd>lua require("trouble").toggle("quickfix")<CR>` |
+| ` xw` | Show workspace diagnostics | `<Cmd>lua require("trouble").toggle("workspace_diagnostics")<CR>` |
+| ` xx` | Toggle Trouble | `<Cmd>lua require('trouble').toggle()<CR>` |
+| ` yy` | Yank line to system clipboard | `"+yy` |
+| `&` | :help &-default | `:&&<CR>` |
+| `,h` | Open vertical help prompt | `:vert bo help ` |
+| `,s` | Save all buffers | `:wa<CR>` |
+| `-` | Open parent directory | `<Cmd>Oil<CR>` |
+| `<BS>` | Switch to alternate buffer | `<C-6>` |
+| `<C-E>` | Scroll window down three lines | `3<C-E>` |
+| `<C-L>` | :help CTRL-L-default | `<Cmd>nohlsearch\|diffupdate\|normal! <C-L><CR>` |
+| `<C-W><C-D>` | Show diagnostics under the cursor | `<C-W>d` |
+| `<C-W>d` | Show diagnostics under the cursor | `<Lua callback>` |
+| `<C-Y>` | Scroll window up three lines | `3<C-Y>` |
+| `<M-P>` | Paste from x register | `"xp` |
+| `<M-h>` | Move to left window | `<C-W>h` |
+| `<M-j>` | Move to lower window | `<C-W>j` |
+| `<M-k>` | Move to upper window | `<C-W>k` |
+| `<M-l>` | Move to right window | `<C-W>l` |
+| `<M-p>` | Paste from yank register | `"0p` |
+| `<Plug>(comment_toggle_blockwise)` | Comment toggle blockwise | `<Lua callback>` |
+| `<Plug>(comment_toggle_blockwise_count)` | Comment toggle blockwise with count | `<Lua callback>` |
+| `<Plug>(comment_toggle_blockwise_current)` | Comment toggle current block | `<Lua callback>` |
+| `<Plug>(comment_toggle_linewise)` | Comment toggle linewise | `<Lua callback>` |
+| `<Plug>(comment_toggle_linewise_count)` | Comment toggle linewise with count | `<Lua callback>` |
+| `<Plug>(comment_toggle_linewise_current)` | Comment toggle current line | `<Lua callback>` |
+| `<Plug>(nvim-surround-change)` | Change a surrounding pair | `<Lua callback>` |
+| `<Plug>(nvim-surround-change-line)` | Change a surrounding pair, putting replacements on new lines | `<Lua callback>` |
+| `<Plug>(nvim-surround-delete)` | Delete a surrounding pair | `<Lua callback>` |
+| `<Plug>(nvim-surround-normal)` | Add a surrounding pair around a motion (normal mode) | `<Lua callback>` |
+| `<Plug>(nvim-surround-normal-cur)` | Add a surrounding pair around the current line (normal mode) | `<Lua callback>` |
+| `<Plug>(nvim-surround-normal-cur-line)` | Add a surrounding pair around the current line, on new lines (normal mode) | `<Lua callback>` |
+| `<Plug>(nvim-surround-normal-line)` | Add a surrounding pair around a motion, on new lines (normal mode) | `<Lua callback>` |
+| `<Plug>luasnip-delete-check` | LuaSnip: Removes current snippet from jumplist | `<Lua callback>` |
+| `<Plug>luasnip-expand-repeat` | LuaSnip: Repeat last node expansion | `<Lua callback>` |
+| `Y` | :help Y-default | `y$` |
+| `[ ` | Add empty line above cursor | `<Lua callback>` |
+| `[<C-L>` | :lpfile | `<Lua callback>` |
+| `[<C-Q>` | :cpfile | `<Lua callback>` |
+| `[<C-T>` | :ptprevious | `<Lua callback>` |
+| `[A` | :rewind | `<Lua callback>` |
+| `[B` | :brewind | `<Lua callback>` |
+| `[D` | Jump to the first diagnostic in the current buffer | `<Lua callback>` |
+| `[L` | :lrewind | `<Lua callback>` |
+| `[Q` | :crewind | `<Lua callback>` |
+| `[T` | :trewind | `<Lua callback>` |
+| `[a` | :previous | `<Lua callback>` |
+| `[b` | :bprevious | `<Lua callback>` |
+| `[d` | Go to previous diagnostic | `<Lua callback>` |
+| `[l` | :lprevious | `<Lua callback>` |
+| `[q` | :cprevious | `<Lua callback>` |
+| `[t` | :tprevious | `<Lua callback>` |
+| `] ` | Add empty line below cursor | `<Lua callback>` |
+| `]<C-L>` | :lnfile | `<Lua callback>` |
+| `]<C-Q>` | :cnfile | `<Lua callback>` |
+| `]<C-T>` | :ptnext | `<Lua callback>` |
+| `]A` | :last | `<Lua callback>` |
+| `]B` | :blast | `<Lua callback>` |
+| `]D` | Jump to the last diagnostic in the current buffer | `<Lua callback>` |
+| `]L` | :llast | `<Lua callback>` |
+| `]Q` | :clast | `<Lua callback>` |
+| `]T` | :tlast | `<Lua callback>` |
+| `]a` | :next | `<Lua callback>` |
+| `]b` | :bnext | `<Lua callback>` |
+| `]d` | Go to next diagnostic | `<Lua callback>` |
+| `]l` | :lnext | `<Lua callback>` |
+| `]q` | :cnext | `<Lua callback>` |
+| `]t` | :tnext | `<Lua callback>` |
+| `cS` | Change a surrounding pair, putting replacements on new lines | `<Plug>(nvim-surround-change-line)` |
+| `cs` | Change a surrounding pair | `<Plug>(nvim-surround-change)` |
+| `ds` | Delete a surrounding pair | `<Plug>(nvim-surround-delete)` |
+| `gO` | vim.lsp.buf.document_symbol() | `<Lua callback>` |
+| `gR` | Show LSP references in Trouble | `<Lua callback>` |
+| `gb` | Comment toggle blockwise | `<Plug>(comment_toggle_blockwise)` |
+| `gbc` | Comment toggle current block | `<Lua callback>` |
+| `gc` | Comment toggle linewise | `<Plug>(comment_toggle_linewise)` |
+| `gcA` | Comment insert end of line | `<Lua callback>` |
+| `gcO` | Comment insert above | `<Lua callback>` |
+| `gcc` | Comment toggle current line | `<Lua callback>` |
+| `gco` | Comment insert below | `<Lua callback>` |
+| `gra` | vim.lsp.buf.code_action() | `<Lua callback>` |
+| `gri` | vim.lsp.buf.implementation() | `<Lua callback>` |
+| `grn` | vim.lsp.buf.rename() | `<Lua callback>` |
+| `grr` | vim.lsp.buf.references() | `<Lua callback>` |
+| `grt` | vim.lsp.buf.type_definition() | `<Lua callback>` |
+| `grx` | vim.lsp.codelens.run() | `<Lua callback>` |
+| `gx` | Opens filepath or URI under cursor with the system handler (file explorer, web browser, â€¦) | `<Lua callback>` |
+| `j` | Move down by display line | `v:count == 0 ? 'gj' : 'j'` |
+| `k` | Move up by display line | `v:count == 0 ? 'gk' : 'k'` |
+| `x` | Delete character to x register | `"xx` |
+| `yS` | Add a surrounding pair around a motion, on new lines (normal mode) | `<Plug>(nvim-surround-normal-line)` |
+| `ySS` | Add a surrounding pair around the current line, on new lines (normal mode) | `<Plug>(nvim-surround-normal-cur-line)` |
+| `ys` | Add a surrounding pair around a motion (normal mode) | `<Plug>(nvim-surround-normal)` |
+| `yss` | Add a surrounding pair around the current line (normal mode) | `<Plug>(nvim-surround-normal-cur)` |
+
+### Insert
+
+| Key | Description | Command |
+|---|---|---|
+| ` ` | autopairs space key map | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run(" ")` |
+| `"` | autopairs ambiguous end pair: """ 		 autopairs ambiguous start pair: """ 		 autopairs ambiguous end pair: " 		 autopairs ambiguous start pair: " | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("\"")` |
+| `'` | autopairs ambiguous end pair: ''' 		 autopairs ambiguous start pair: ''' 		 autopairs end pair: ``,'' 		 autopairs ambiguous end pair: ' 		 autopairs ambiguous start pair: ' | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("'")` |
+| `(` | autopairs start pair: (,) | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("(")` |
+| `)` | autopairs end pair: (,) | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run(")")` |
+| `-` | autopairs start pair: <!--,--> 		 autopairs end pair: <!--,--> | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("-")` |
+| `<BS>` | autopairs backspace key map | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("€kb")` |
+| `<C-G>S` | Add a surrounding pair around the cursor, on new lines (insert mode) | `<Plug>(nvim-surround-insert-line)` |
+| `<C-G>s` | Add a surrounding pair around the cursor (insert mode) | `<Plug>(nvim-surround-insert)` |
+| `<C-N>` | Open netrw explorer | `:Explore<CR>` |
+| `<C-S>` | vim.lsp.buf.signature_help() | `<Lua callback>` |
+| `<C-U>` | :help i_CTRL-U-default | `<C-G>u<C-U>` |
+| `<C-W>` | :help i_CTRL-W-default | `<C-G>u<C-W>` |
+| `<CR>` | autopairs newline key map | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("<CR>")` |
+| `<Down>` | Move down by display line | `<C-O>gj` |
+| `<M-)>` | autopairs close key map 		 autopairs close do nothing | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("€ü<C-H>)")` |
+| `<M-E>` | autopairs reverse fastwarp key map 		 autopairs reverse fastwarp do nothing | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("€ü<C-H>E")` |
+| `<M-e>` | autopairs fastwarp key map 		 autopairs fastwarp do nothing | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("€ü<C-H>e")` |
+| `<M-t>` | Toggle search highlight | `<Lua callback>` |
+| `<Plug>(nvim-surround-insert)` | Add a surrounding pair around the cursor (insert mode) | `<Lua callback>` |
+| `<Plug>(nvim-surround-insert-line)` | Add a surrounding pair around the cursor, on new lines (insert mode) | `<Lua callback>` |
+| `<Plug>luasnip-delete-check` | LuaSnip: Removes current snippet from jumplist | `<Lua callback>` |
+| `<Plug>luasnip-expand-or-jump` | LuaSnip: Expand or jump in the current snippet | `<Lua callback>` |
+| `<Plug>luasnip-expand-repeat` | LuaSnip: Repeat last node expansion | `<Lua callback>` |
+| `<Plug>luasnip-expand-snippet` | LuaSnip: Expand the current snippet | `<Lua callback>` |
+| `<Plug>luasnip-jump-next` | LuaSnip: Jump to the next node | `<Lua callback>` |
+| `<Plug>luasnip-jump-prev` | LuaSnip: Jump to the previous node | `<Lua callback>` |
+| `<Plug>luasnip-next-choice` | LuaSnip: Change to the next choice from the choiceNode | `<Lua callback>` |
+| `<Plug>luasnip-prev-choice` | LuaSnip: Change to the previous choice from the choiceNode | `<Lua callback>` |
+| `<S-Tab>` | vim.snippet.jump if active, otherwise <S-Tab> | `<Lua callback>` |
+| `<Tab>` | vim.snippet.jump if active, otherwise <Tab> | `<Lua callback>` |
+| `<Up>` | Move up by display line | `<C-O>gk` |
+| `[` | autopairs start pair: [,] | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("[")` |
+| `]` | autopairs end pair: [,] | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("]")` |
+| ``` | autopairs ambiguous end pair: ``` 		 autopairs ambiguous start pair: ``` 		 autopairs start pair: ``,'' 		 autopairs ambiguous end pair: ` 		 autopairs ambiguous start pair: ` | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("`")` |
+| `jk` | Exit insert mode | `<Esc>` |
+| `{` | autopairs start pair: {,} | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("{")` |
+| `}` | autopairs end pair: {,} | `v:lua._3082257931_ULTIMATE_AUTOPAIR_CORE.run_run("}")` |
+
+### Visual
+
+| Key | Description | Command |
+|---|---|---|
+| ` 0` | Go to last tab | `:tablast<CR>` |
+| ` 1` | Go to tab 1 | `1gt` |
+| ` 2` | Go to tab 2 | `2gt` |
+| ` 3` | Go to tab 3 | `3gt` |
+| ` 4` | Go to tab 4 | `4gt` |
+| ` 5` | Go to tab 5 | `5gt` |
+| ` 6` | Go to tab 6 | `6gt` |
+| ` 7` | Go to tab 7 | `7gt` |
+| ` 8` | Go to tab 8 | `8gt` |
+| ` 9` | Go to tab 9 | `9gt` |
+| ` jj` | Yank selection to system clipboard | `"+y` |
+| ` kk` | Paste from system clipboard | `"+p` |
+| `#` | :help v_#-default | `<Lua callback>` |
+| `*` | :help v_star-default | `<Lua callback>` |
+| `<BS>` | Switch to alternate buffer | `<C-6>` |
+| `<C-S>` | vim.lsp.buf.signature_help() | `<Lua callback>` |
+| `<M-P>` | Paste from x register | `"xp` |
+| `<M-p>` | Paste from yank register | `"0p` |
+| `<Plug>(comment_toggle_blockwise_visual)` | Comment toggle blockwise (visual) | `<Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR>` |
+| `<Plug>(comment_toggle_linewise_visual)` | Comment toggle linewise (visual) | `<Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR>` |
+| `<Plug>(nvim-surround-visual)` | Add a surrounding pair around a visual selection | `<Lua callback>` |
+| `<Plug>(nvim-surround-visual-line)` | Add a surrounding pair around a visual selection, on new lines | `<Lua callback>` |
+| `<Plug>luasnip-expand-or-jump` | LuaSnip: Expand or jump in the current snippet | `<Lua callback>` |
+| `<Plug>luasnip-expand-repeat` | LuaSnip: Repeat last node expansion | `<Lua callback>` |
+| `<Plug>luasnip-expand-snippet` | LuaSnip: Expand the current snippet | `<Lua callback>` |
+| `<Plug>luasnip-jump-next` | LuaSnip: Jump to the next node | `<Lua callback>` |
+| `<Plug>luasnip-jump-prev` | LuaSnip: Jump to the previous node | `<Lua callback>` |
+| `<Plug>luasnip-next-choice` | LuaSnip: Change to the next choice from the choiceNode | `<Lua callback>` |
+| `<Plug>luasnip-prev-choice` | LuaSnip: Change to the previous choice from the choiceNode | `<Lua callback>` |
+| `<S-Tab>` | vim.snippet.jump if active, otherwise <S-Tab> | `<Lua callback>` |
+| `<Tab>` | vim.snippet.jump if active, otherwise <Tab> | `<Lua callback>` |
+| `@` | :help v_@-default | `mode() ==# 'V' ? ':normal! @'.getcharstr().'<CR>' : '@'` |
+| `Q` | :help v_Q-default | `mode() ==# 'V' ? ':normal! @<C-R>=reg_recorded()<CR><CR>' : 'Q'` |
+| `S` | Add a surrounding pair around a visual selection | `<Plug>(nvim-surround-visual)` |
+| `[n` | Select previous node | `<Lua callback>` |
+| `]n` | Select next node | `<Lua callback>` |
+| `an` | Select parent (outer) node | `<Lua callback>` |
+| `gS` | Add a surrounding pair around a visual selection, on new lines | `<Plug>(nvim-surround-visual-line)` |
+| `gb` | Comment toggle blockwise (visual) | `<Plug>(comment_toggle_blockwise_visual)` |
+| `gc` | Comment toggle linewise (visual) | `<Plug>(comment_toggle_linewise_visual)` |
+| `gra` | vim.lsp.buf.code_action() | `<Lua callback>` |
+| `gx` | Opens filepath or URI under cursor with the system handler (file explorer, web browser, â€¦) | `<Lua callback>` |
+| `in` | Select child (inner) node | `<Lua callback>` |
+| `j` | Move down by display line | `v:count == 0 ? 'gj' : 'j'` |
+| `k` | Move up by display line | `v:count == 0 ? 'gk' : 'k'` |
+| `x` | Delete selection to x register | `"xx` |
+
+### Visual Block
+
+| Key | Description | Command |
+|---|---|---|
+| ` 0` | Go to last tab | `:tablast<CR>` |
+| ` 1` | Go to tab 1 | `1gt` |
+| ` 2` | Go to tab 2 | `2gt` |
+| ` 3` | Go to tab 3 | `3gt` |
+| ` 4` | Go to tab 4 | `4gt` |
+| ` 5` | Go to tab 5 | `5gt` |
+| ` 6` | Go to tab 6 | `6gt` |
+| ` 7` | Go to tab 7 | `7gt` |
+| ` 8` | Go to tab 8 | `8gt` |
+| ` 9` | Go to tab 9 | `9gt` |
+| ` jj` | Yank selection to system clipboard | `"+y` |
+| ` kk` | Paste from system clipboard | `"+p` |
+| `#` | :help v_#-default | `<Lua callback>` |
+| `*` | :help v_star-default | `<Lua callback>` |
+| `<BS>` | Switch to alternate buffer | `<C-6>` |
+| `<M-P>` | Paste from x register | `"xp` |
+| `<M-p>` | Paste from yank register | `"0p` |
+| `<Plug>(comment_toggle_blockwise_visual)` | Comment toggle blockwise (visual) | `<Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR>` |
+| `<Plug>(comment_toggle_linewise_visual)` | Comment toggle linewise (visual) | `<Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR>` |
+| `<Plug>(nvim-surround-visual)` | Add a surrounding pair around a visual selection | `<Lua callback>` |
+| `<Plug>(nvim-surround-visual-line)` | Add a surrounding pair around a visual selection, on new lines | `<Lua callback>` |
+| `<Plug>luasnip-expand-repeat` | LuaSnip: Repeat last node expansion | `<Lua callback>` |
+| `@` | :help v_@-default | `mode() ==# 'V' ? ':normal! @'.getcharstr().'<CR>' : '@'` |
+| `Q` | :help v_Q-default | `mode() ==# 'V' ? ':normal! @<C-R>=reg_recorded()<CR><CR>' : 'Q'` |
+| `S` | Add a surrounding pair around a visual selection | `<Plug>(nvim-surround-visual)` |
+| `[n` | Select previous node | `<Lua callback>` |
+| `]n` | Select next node | `<Lua callback>` |
+| `an` | Select parent (outer) node | `<Lua callback>` |
+| `gS` | Add a surrounding pair around a visual selection, on new lines | `<Plug>(nvim-surround-visual-line)` |
+| `gb` | Comment toggle blockwise (visual) | `<Plug>(comment_toggle_blockwise_visual)` |
+| `gc` | Comment toggle linewise (visual) | `<Plug>(comment_toggle_linewise_visual)` |
+| `gra` | vim.lsp.buf.code_action() | `<Lua callback>` |
+| `gx` | Opens filepath or URI under cursor with the system handler (file explorer, web browser, â€¦) | `<Lua callback>` |
+| `in` | Select child (inner) node | `<Lua callback>` |
+| `j` | Move down by display line | `v:count == 0 ? 'gj' : 'j'` |
+| `k` | Move up by display line | `v:count == 0 ? 'gk' : 'k'` |
+| `x` | Delete selection to x register | `"xx` |
+
+### Select
+
+| Key | Description | Command |
+|---|---|---|
+| ` 0` | Go to last tab | `:tablast<CR>` |
+| ` 1` | Go to tab 1 | `1gt` |
+| ` 2` | Go to tab 2 | `2gt` |
+| ` 3` | Go to tab 3 | `3gt` |
+| ` 4` | Go to tab 4 | `4gt` |
+| ` 5` | Go to tab 5 | `5gt` |
+| ` 6` | Go to tab 6 | `6gt` |
+| ` 7` | Go to tab 7 | `7gt` |
+| ` 8` | Go to tab 8 | `8gt` |
+| ` 9` | Go to tab 9 | `9gt` |
+| ` jj` | Yank selection to system clipboard | `"+y` |
+| ` kk` | Paste from system clipboard | `"+p` |
+| `<BS>` | Switch to alternate buffer | `<C-6>` |
+| `<C-S>` | vim.lsp.buf.signature_help() | `<Lua callback>` |
+| `<M-P>` | Paste from x register | `"xp` |
+| `<M-p>` | Paste from yank register | `"0p` |
+| `<Plug>luasnip-expand-or-jump` | LuaSnip: Expand or jump in the current snippet | `<Lua callback>` |
+| `<Plug>luasnip-expand-repeat` | LuaSnip: Repeat last node expansion | `<Lua callback>` |
+| `<Plug>luasnip-expand-snippet` | LuaSnip: Expand the current snippet | `<Lua callback>` |
+| `<Plug>luasnip-jump-next` | LuaSnip: Jump to the next node | `<Lua callback>` |
+| `<Plug>luasnip-jump-prev` | LuaSnip: Jump to the previous node | `<Lua callback>` |
+| `<Plug>luasnip-next-choice` | LuaSnip: Change to the next choice from the choiceNode | `<Lua callback>` |
+| `<Plug>luasnip-prev-choice` | LuaSnip: Change to the previous choice from the choiceNode | `<Lua callback>` |
+| `<S-Tab>` | vim.snippet.jump if active, otherwise <S-Tab> | `<Lua callback>` |
+| `<Tab>` | vim.snippet.jump if active, otherwise <Tab> | `<Lua callback>` |
+| `j` | Move down by display line | `v:count == 0 ? 'gj' : 'j'` |
+| `k` | Move up by display line | `v:count == 0 ? 'gk' : 'k'` |
+| `x` | Delete selection to x register | `"xx` |
+
+### Operator Pending
+
+| Key | Description | Command |
+|---|---|---|
+| ` 0` | Go to last tab | `:tablast<CR>` |
+| ` 1` | Go to tab 1 | `1gt` |
+| ` 2` | Go to tab 2 | `2gt` |
+| ` 3` | Go to tab 3 | `3gt` |
+| ` 4` | Go to tab 4 | `4gt` |
+| ` 5` | Go to tab 5 | `5gt` |
+| ` 6` | Go to tab 6 | `6gt` |
+| ` 7` | Go to tab 7 | `7gt` |
+| ` 8` | Go to tab 8 | `8gt` |
+| ` 9` | Go to tab 9 | `9gt` |
+| `<BS>` | Switch to alternate buffer | `<C-6>` |
+| `<Plug>luasnip-expand-repeat` | LuaSnip: Repeat last node expansion | `<Lua callback>` |
+| `an` | Select parent (outer) node | `<Lua callback>` |
+| `gc` | Comment textobject | `<Lua callback>` |
+| `in` | Select child (inner) node | `<Lua callback>` |
+
+### Terminal
+
+| Key | Description | Command |
+|---|---|---|
+| _none_ | _No mappings with `desc` found_ | |
+
+## Manual notes
+
+Use this area for keybindings, workflows, plugin notes, reminders, or commands you want to keep by hand.
+
+### My reminders
+
+- `<leader>` is Space.
+- Add notes here. This section will not be overwritten.
+

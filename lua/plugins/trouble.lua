@@ -59,6 +59,6 @@ return {
     config = function()
         vim.keymap.set("n", "gR", function()
             require("trouble").toggle("lsp_references")
-        end)
+        end, { desc = "Show LSP references in Trouble" })
     end,
 }

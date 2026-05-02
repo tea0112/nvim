@@ -8,47 +8,27 @@ return {
         wk.register({
             a = {
                 name = "Copy",
-                a = { "ggVG", "Select All" },
-                e = { 'ggVG"+y', "Copy All to System Register" },
-                r = { 'ggVG"+p', "Paste All to System Register" },
             },
             d = {
                 name = "Diffview plugin",
-                o = { "<cmd>DiffviewOpen<cr>", "Open Git Diff View" },
-                c = { "<cmd>DiffviewClose<cr>", "Open Git Diff View" },
             },
             o = {
                 name = "Insert new line",
-                o = { 'o<esc>0"_D', "Down" },
-                O = { 'O<esc>0"_D', "Up" },
             },
             l = {
                 name = "conform",
-                f = { '<cmd>lua require("conform").format({ bufnr = 0, async = true, lsp_fallback = true })<cr>', "conform nvim format" }
             },
             n = {
                 name = "Navbuddy",
-                v = { "<cmd>Navbuddy<cr>", "Open" },
             },
             r = {
                 name = "Lsp",
-                r = { '<cmd>lua require("trouble").toggle("lsp_references")<cr>', "References" },
-                i = { '<cmd>GoImplements<cr>', "Go Implements" }
             },
             x = {
                 name = "Trouble",
-                x = { "<cmd>lua require('trouble').toggle()<cr>", "Toggle trouble" },
-                w = { '<cmd>lua require("trouble").toggle("workspace_diagnostics")<cr>', "Workspace diagnostics" },
-                d = { '<cmd>lua require("trouble").toggle("document_diagnostics")<cr>', "Document diagnostics" },
-                q = { '<cmd>lua require("trouble").toggle("quickfix")<cr>', "Quickfix" },
-                l = { '<cmd>lua require("trouble").toggle("loclist")<cr>', "Loc List" },
             },
             w = {
                 name = "Window",
-                a = { "<cmd>bd!<cr>", "Force closing buffer" },
-                s = { "<cmd>:wq!<cr>", "Force quit all and save all" },
-                w = { "<c-w>c", "Close window" },
-                q = { "<cmd>:qa!<cr>", "Force quit all without saving" },
             },
         }, {
             mode = "n", -- NORMAL mode
@@ -61,5 +41,36 @@ return {
             nowait = false, -- use `nowait` when creating keymaps
             expr = false,   -- use `expr` when creating keymaps
         })
+
+        local function map(lhs, rhs, desc)
+            vim.keymap.set("n", lhs, rhs, { silent = true, desc = desc })
+        end
+
+        map("<leader>aa", "ggVG", "Select all")
+        map("<leader>ae", 'ggVG"+y', "Copy all to system clipboard")
+        map("<leader>ar", 'ggVG"+p', "Paste system clipboard over whole buffer")
+
+        map("<leader>do", "<cmd>DiffviewOpen<cr>", "Open Git diff view")
+        map("<leader>dc", "<cmd>DiffviewClose<cr>", "Close Git diff view")
+
+        map("<leader>oo", 'o<esc>0"_D', "Insert empty line below")
+        map("<leader>oO", 'O<esc>0"_D', "Insert empty line above")
+
+        map("<leader>lf", '<cmd>lua require("conform").format({ bufnr = 0, async = true, lsp_fallback = true })<cr>', "Format buffer with conform")
+        map("<leader>nv", "<cmd>Navbuddy<cr>", "Open Navbuddy")
+
+        map("<leader>rr", '<cmd>lua require("trouble").toggle("lsp_references")<cr>', "Show LSP references")
+        map("<leader>ri", "<cmd>GoImplements<cr>", "Show Go implementations")
+
+        map("<leader>xx", "<cmd>lua require('trouble').toggle()<cr>", "Toggle Trouble")
+        map("<leader>xw", '<cmd>lua require("trouble").toggle("workspace_diagnostics")<cr>', "Show workspace diagnostics")
+        map("<leader>xd", '<cmd>lua require("trouble").toggle("document_diagnostics")<cr>', "Show document diagnostics")
+        map("<leader>xq", '<cmd>lua require("trouble").toggle("quickfix")<cr>', "Show quickfix list")
+        map("<leader>xl", '<cmd>lua require("trouble").toggle("loclist")<cr>', "Show location list")
+
+        map("<leader>wa", "<cmd>bd!<cr>", "Force close buffer")
+        map("<leader>ws", "<cmd>:wq!<cr>", "Force save and quit")
+        map("<leader>ww", "<c-w>c", "Close window")
+        map("<leader>wq", "<cmd>:qa!<cr>", "Force quit all without saving")
     end,
 }

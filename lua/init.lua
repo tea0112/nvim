@@ -82,6 +82,7 @@ require("Comment").setup()
 require("nvim-surround").setup()
 require("ultimate-autopair").setup()
 require("barbecue").setup()
+require("config.keymap_note")
 
 -----------------
 -- colorscheme --
@@ -91,37 +92,79 @@ vim.cmd([[colorscheme tokyonight]])
 -----------------
 -- key mapping --
 -----------------
-OPTS_SILENT_NOREMAP = { silent = true, noremap = true }
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
--- vim.keymap.set("n", "<c-l>", "<cmd>set hlsearch!<cr>", OPTS_SILENT_NOREMAP)
--- vim.keymap.set("i", "<c-l>", "<cmd>set hlsearch!<cr>", OPTS_SILENT_NOREMAP)
+local function keymap_opts(desc, opts)
+    return vim.tbl_extend("force", { desc = desc }, opts or {})
+end
 
-local opts = { noremap = true, silent = true }
+local function silent_keymap_opts(desc, opts)
+    return keymap_opts(desc, vim.tbl_extend("force", { silent = true }, opts or {}))
+end
+
+vim.keymap.set("n", "<leader>sv", ":source $MYVIMRC<CR>", keymap_opts("Source Neovim config", { remap = true }))
+vim.keymap.set({ "n", "v", "o" }, "<Backspace>", "<C-6>", keymap_opts("Switch to alternate buffer", { remap = true }))
+
+vim.keymap.set("n", ",h", ":vert bo help ", keymap_opts("Open vertical help prompt"))
+vim.keymap.set("n", "<A-h>", "<C-w>h", keymap_opts("Move to left window"))
+vim.keymap.set("n", "<A-j>", "<C-w>j", keymap_opts("Move to lower window"))
+vim.keymap.set("n", "<A-k>", "<C-w>k", keymap_opts("Move to upper window"))
+vim.keymap.set("n", "<A-l>", "<C-w>l", keymap_opts("Move to right window"))
+
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", keymap_opts("Open parent directory"))
+vim.keymap.set("n", "x", '"xx', keymap_opts("Delete character to x register"))
+vim.keymap.set("n", "<leader>yy", '"+yy', keymap_opts("Yank line to system clipboard"))
+vim.keymap.set("n", "<leader>pp", '"+p', keymap_opts("Paste from system clipboard"))
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", keymap_opts("Find files"))
+vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", keymap_opts("Search text in files"))
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", keymap_opts("Find open buffers"))
+vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", keymap_opts("Search help tags"))
+vim.keymap.set("n", "<C-e>", "3<C-e>", keymap_opts("Scroll window down three lines"))
+vim.keymap.set("n", "<C-y>", "3<C-y>", keymap_opts("Scroll window up three lines"))
+
+vim.keymap.set("i", "jk", "<Esc>", keymap_opts("Exit insert mode", { remap = true }))
+vim.keymap.set("i", "<C-n>", ":Explore<CR>", keymap_opts("Open netrw explorer", { remap = true }))
+vim.keymap.set("v", "x", '"xx', keymap_opts("Delete selection to x register"))
+vim.keymap.set("v", "<leader>jj", '"+y', keymap_opts("Yank selection to system clipboard"))
+vim.keymap.set("v", "<leader>kk", '"+p', keymap_opts("Paste from system clipboard"))
+
+vim.keymap.set("i", "<Down>", "<C-o>gj", keymap_opts("Move down by display line"))
+vim.keymap.set("i", "<Up>", "<C-o>gk", keymap_opts("Move up by display line"))
+
+vim.keymap.set({ "n", "v", "o" }, "<leader>1", "1gt", keymap_opts("Go to tab 1"))
+vim.keymap.set({ "n", "v", "o" }, "<leader>2", "2gt", keymap_opts("Go to tab 2"))
+vim.keymap.set({ "n", "v", "o" }, "<leader>3", "3gt", keymap_opts("Go to tab 3"))
+vim.keymap.set({ "n", "v", "o" }, "<leader>4", "4gt", keymap_opts("Go to tab 4"))
+vim.keymap.set({ "n", "v", "o" }, "<leader>5", "5gt", keymap_opts("Go to tab 5"))
+vim.keymap.set({ "n", "v", "o" }, "<leader>6", "6gt", keymap_opts("Go to tab 6"))
+vim.keymap.set({ "n", "v", "o" }, "<leader>7", "7gt", keymap_opts("Go to tab 7"))
+vim.keymap.set({ "n", "v", "o" }, "<leader>8", "8gt", keymap_opts("Go to tab 8"))
+vim.keymap.set({ "n", "v", "o" }, "<leader>9", "9gt", keymap_opts("Go to tab 9"))
+vim.keymap.set({ "n", "v", "o" }, "<leader>0", ":tablast<cr>", keymap_opts("Go to last tab"))
+
 -- 1. Normal Mode: Space + t + h
 vim.keymap.set("n", "<leader>th", function()
     vim.opt.hlsearch = not vim.opt.hlsearch:get()
-end, vim.tbl_extend("force", opts, { desc = "Toggle hlsearch" }))
+end, silent_keymap_opts("Toggle search highlight"))
 -- 2. Insert Mode: Alt + t
 vim.keymap.set("i", "<M-t>", function()
     vim.opt.hlsearch = not vim.opt.hlsearch:get()
-end, vim.tbl_extend("force", opts, { desc = "Toggle hlsearch" }))
+end, silent_keymap_opts("Toggle search highlight"))
 
-vim.keymap.set("n", ",s", ":wa<CR>", OPTS_SILENT_NOREMAP)
-vim.keymap.set({ "n", "v" }, "<a-p>", '"0p', OPTS_SILENT_NOREMAP)
-vim.keymap.set({ "n", "v" }, "<a-s-p>", '"xp', OPTS_SILENT_NOREMAP)
+vim.keymap.set("n", ",s", ":wa<CR>", silent_keymap_opts("Save all buffers"))
+vim.keymap.set({ "n", "v" }, "<a-p>", '"0p', silent_keymap_opts("Paste from yank register"))
+vim.keymap.set({ "n", "v" }, "<a-s-p>", '"xp', silent_keymap_opts("Paste from x register"))
 -- map gj gk
-vim.keymap.set({ "n", "v" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
-vim.keymap.set({ "n", "v" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+vim.keymap.set({ "n", "v" }, "k", "v:count == 0 ? 'gk' : 'k'", keymap_opts("Move up by display line", { expr = true }))
+vim.keymap.set({ "n", "v" }, "j", "v:count == 0 ? 'gj' : 'j'", keymap_opts("Move down by display line", { expr = true }))
 -- tab
-vim.api.nvim_set_keymap("n", "<leader>ta", ":$tabnew<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>to", ":tabonly<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tn", ":tabn<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tp", ":tabp<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>ta", ":$tabnew<CR>", keymap_opts("Open new tab"))
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", keymap_opts("Close current tab"))
+vim.keymap.set("n", "<leader>to", ":tabonly<CR>", keymap_opts("Close other tabs"))
+vim.keymap.set("n", "<leader>tn", ":tabn<CR>", keymap_opts("Go to next tab"))
+vim.keymap.set("n", "<leader>tp", ":tabp<CR>", keymap_opts("Go to previous tab"))
 -- move current tab to previous position
-vim.api.nvim_set_keymap("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>tmp", ":-tabmove<CR>", keymap_opts("Move tab left"))
 -- move current tab to next position
-vim.api.nvim_set_keymap("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>tmn", ":+tabmove<CR>", keymap_opts("Move tab right"))
 
 ------------------
 -- trigger lint --
