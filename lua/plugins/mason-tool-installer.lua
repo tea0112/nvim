@@ -19,6 +19,7 @@ return {
                 "flake8",
                 "shellcheck",
                 "shfmt",
+                "yamlfmt",
             },
 
             -- if set to true this will check each tool for updates. If updates
