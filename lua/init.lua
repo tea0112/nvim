@@ -77,6 +77,7 @@ require("lazy").setup({
 ------------------
 -- plugin setup --
 ------------------
+require("config.treesitter")
 require("lsp").setup()
 require("Comment").setup()
 require("nvim-surround").setup()
