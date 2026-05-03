@@ -101,14 +101,40 @@ local function silent_keymap_opts(desc, opts)
     return keymap_opts(desc, vim.tbl_extend("force", { silent = true }, opts or {}))
 end
 
+local tmux_direction_flags = {
+    h = "-L",
+    j = "-D",
+    k = "-U",
+    l = "-R",
+}
+
+local function tmux_aware_navigate(direction)
+    local start_win = vim.api.nvim_get_current_win()
+    local ok = pcall(vim.cmd, "wincmd " .. direction)
+
+    if ok and vim.api.nvim_get_current_win() ~= start_win then
+        return
+    end
+
+    if not vim.env.TMUX or not vim.env.TMUX_PANE or vim.fn.executable("tmux") ~= 1 then
+        return
+    end
+
+    local target_flag = tmux_direction_flags[direction]
+
+    if target_flag then
+        vim.fn.system({ "tmux", "select-pane", "-t", vim.env.TMUX_PANE, target_flag })
+    end
+end
+
 vim.keymap.set("n", "<leader>sv", ":source $MYVIMRC<CR>", keymap_opts("Source Neovim config", { remap = true }))
 vim.keymap.set({ "n", "v", "o" }, "<Backspace>", "<C-6>", keymap_opts("Switch to alternate buffer", { remap = true }))
 
 vim.keymap.set("n", ",h", ":vert bo help ", keymap_opts("Open vertical help prompt"))
-vim.keymap.set("n", "<A-h>", "<C-w>h", keymap_opts("Move to left window"))
-vim.keymap.set("n", "<A-j>", "<C-w>j", keymap_opts("Move to lower window"))
-vim.keymap.set("n", "<A-k>", "<C-w>k", keymap_opts("Move to upper window"))
-vim.keymap.set("n", "<A-l>", "<C-w>l", keymap_opts("Move to right window"))
+vim.keymap.set("n", "<A-h>", function() tmux_aware_navigate("h") end, keymap_opts("Move to left window or tmux pane"))
+vim.keymap.set("n", "<A-j>", function() tmux_aware_navigate("j") end, keymap_opts("Move to lower window or tmux pane"))
+vim.keymap.set("n", "<A-k>", function() tmux_aware_navigate("k") end, keymap_opts("Move to upper window or tmux pane"))
+vim.keymap.set("n", "<A-l>", function() tmux_aware_navigate("l") end, keymap_opts("Move to right window or tmux pane"))
 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", keymap_opts("Open parent directory"))
 vim.keymap.set("n", "x", '"xx', keymap_opts("Delete character to x register"))
