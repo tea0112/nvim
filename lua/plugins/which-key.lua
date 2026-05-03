@@ -35,11 +35,11 @@ return {
             -- prefix: use "<leader>f" for example for mapping everything related to finding files
             -- the prefix is prepended to every mapping part of `mappings`
             prefix = "<leader>",
-            buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
-            silent = true,  -- use `silent` when creating keymaps
+            buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+            silent = true, -- use `silent` when creating keymaps
             noremap = true, -- use `noremap` when creating keymaps
             nowait = false, -- use `nowait` when creating keymaps
-            expr = false,   -- use `expr` when creating keymaps
+            expr = false, -- use `expr` when creating keymaps
         })
 
         local function map(lhs, rhs, desc)
@@ -56,14 +56,22 @@ return {
         map("<leader>oo", 'o<esc>0"_D', "Insert empty line below")
         map("<leader>oO", 'O<esc>0"_D', "Insert empty line above")
 
-        map("<leader>lf", '<cmd>lua require("conform").format({ bufnr = 0, async = true, lsp_fallback = true })<cr>', "Format buffer with conform")
+        map(
+            "<leader>lf",
+            '<cmd>lua require("conform").format({ bufnr = 0, async = true, lsp_fallback = true })<cr>',
+            "Format buffer with conform"
+        )
         map("<leader>nv", "<cmd>Navbuddy<cr>", "Open Navbuddy")
 
         map("<leader>rr", '<cmd>lua require("trouble").toggle("lsp_references")<cr>', "Show LSP references")
         map("<leader>ri", "<cmd>GoImplements<cr>", "Show Go implementations")
 
         map("<leader>xx", "<cmd>lua require('trouble').toggle()<cr>", "Toggle Trouble")
-        map("<leader>xw", '<cmd>lua require("trouble").toggle("workspace_diagnostics")<cr>', "Show workspace diagnostics")
+        map(
+            "<leader>xw",
+            '<cmd>lua require("trouble").toggle("workspace_diagnostics")<cr>',
+            "Show workspace diagnostics"
+        )
         map("<leader>xd", '<cmd>lua require("trouble").toggle("document_diagnostics")<cr>', "Show document diagnostics")
         map("<leader>xq", '<cmd>lua require("trouble").toggle("quickfix")<cr>', "Show quickfix list")
         map("<leader>xl", '<cmd>lua require("trouble").toggle("loclist")<cr>', "Show location list")

@@ -131,10 +131,18 @@ vim.keymap.set("n", "<leader>sv", ":source $MYVIMRC<CR>", keymap_opts("Source Ne
 vim.keymap.set({ "n", "v", "o" }, "<Backspace>", "<C-6>", keymap_opts("Switch to alternate buffer", { remap = true }))
 
 vim.keymap.set("n", ",h", ":vert bo help ", keymap_opts("Open vertical help prompt"))
-vim.keymap.set("n", "<A-h>", function() tmux_aware_navigate("h") end, keymap_opts("Move to left window or tmux pane"))
-vim.keymap.set("n", "<A-j>", function() tmux_aware_navigate("j") end, keymap_opts("Move to lower window or tmux pane"))
-vim.keymap.set("n", "<A-k>", function() tmux_aware_navigate("k") end, keymap_opts("Move to upper window or tmux pane"))
-vim.keymap.set("n", "<A-l>", function() tmux_aware_navigate("l") end, keymap_opts("Move to right window or tmux pane"))
+vim.keymap.set("n", "<A-h>", function()
+    tmux_aware_navigate("h")
+end, keymap_opts("Move to left window or tmux pane"))
+vim.keymap.set("n", "<A-j>", function()
+    tmux_aware_navigate("j")
+end, keymap_opts("Move to lower window or tmux pane"))
+vim.keymap.set("n", "<A-k>", function()
+    tmux_aware_navigate("k")
+end, keymap_opts("Move to upper window or tmux pane"))
+vim.keymap.set("n", "<A-l>", function()
+    tmux_aware_navigate("l")
+end, keymap_opts("Move to right window or tmux pane"))
 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", keymap_opts("Open parent directory"))
 vim.keymap.set("n", "x", '"xx', keymap_opts("Delete character to x register"))
@@ -181,7 +189,12 @@ vim.keymap.set({ "n", "v" }, "<a-p>", '"0p', silent_keymap_opts("Paste from yank
 vim.keymap.set({ "n", "v" }, "<a-s-p>", '"xp', silent_keymap_opts("Paste from x register"))
 -- map gj gk
 vim.keymap.set({ "n", "v" }, "k", "v:count == 0 ? 'gk' : 'k'", keymap_opts("Move up by display line", { expr = true }))
-vim.keymap.set({ "n", "v" }, "j", "v:count == 0 ? 'gj' : 'j'", keymap_opts("Move down by display line", { expr = true }))
+vim.keymap.set(
+    { "n", "v" },
+    "j",
+    "v:count == 0 ? 'gj' : 'j'",
+    keymap_opts("Move down by display line", { expr = true })
+)
 -- tab
 vim.keymap.set("n", "<leader>ta", ":$tabnew<CR>", keymap_opts("Open new tab"))
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", keymap_opts("Close current tab"))
