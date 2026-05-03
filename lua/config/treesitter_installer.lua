@@ -441,11 +441,8 @@ M.ensure = function(opts)
     end
 
     if not opts.force and debounce_active(opts) then
-        notify("Skipping Tree-sitter parser install because it ran recently")
         return true
     end
-
-    touch_debounce(opts)
 
     local ok, err = xpcall(function()
         require_commands({ "git", "tree-sitter", "node", "cc" })
@@ -492,6 +489,8 @@ M.ensure = function(opts)
         notify(error_message(err), vim.log.levels.ERROR)
         return false
     end
+
+    touch_debounce(opts)
 
     return true
 end

@@ -15,6 +15,11 @@ return {
                 --     { ".git/", "generated.go" },
                 -- },
             },
+            pickers = {
+                find_files = {
+                    hidden = true,
+                },
+            },
         })
     end,
 }
