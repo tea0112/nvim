@@ -82,6 +82,22 @@ require("lsp").setup()
 require("Comment").setup()
 require("nvim-surround").setup()
 require("ultimate-autopair").setup()
+
+do
+    local ua_utils = require("ultimate-autopair.utils")
+    local orig_getsmartft = ua_utils.getsmartft
+    local orig_gettsnode = ua_utils.gettsnode
+    ua_utils.getsmartft = function(...)
+        local ok, res = pcall(orig_getsmartft, ...)
+        if ok then return res end
+        return vim.o.filetype
+    end
+    ua_utils.gettsnode = function(...)
+        local ok, res = pcall(orig_gettsnode, ...)
+        if ok then return res end
+        return nil
+    end
+end
 require("barbecue").setup()
 require("config.keymap_note")
 
