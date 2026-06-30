@@ -58,7 +58,7 @@ return {
 
         map(
             "<leader>lf",
-            '<cmd>lua require("conform").format({ bufnr = 0, async = true, lsp_fallback = true })<cr>',
+            '<cmd>lua require("conform").format({ bufnr = 0, async = true, lsp_format = "fallback" })<cr>',
             "Format buffer with conform"
         )
         map("<leader>nv", "<cmd>Navbuddy<cr>", "Open Navbuddy")

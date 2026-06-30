@@ -13,6 +13,7 @@ return {
                 sh = { "shfmt" },
                 go = { "gofmt", "goimports" },
                 json = { "jq" },
+                jsonc = { "prettierd", "prettier", stop_after_first = true },
                 yaml = { "yamlfmt" },
                 graphql = { "prettierd", "prettier", stop_after_first = true },
                 -- Conform will run multiple formatters sequentially

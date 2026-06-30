@@ -62,7 +62,7 @@ function M.setup()
                 vim.lsp.buf.format({ async = true })
             end, opts("Format buffer with LSP"))
             vim.keymap.set("v", "<leader>lf", function()
-                require("conform").format({ async = true, lsp_fallback = true })
+                require("conform").format({ async = true, lsp_format = "fallback" })
             end, opts("Format selection"))
         end,
     })
