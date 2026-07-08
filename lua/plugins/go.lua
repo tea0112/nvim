@@ -4,7 +4,7 @@ return {
         "ray-x/guihua.lua",
         "neovim/nvim-lspconfig",
     },
-    event = { "CmdlineEnter" },
+    event = { "VeryLazy" },
     ft = { "go", "gomod", "gowork", "gotmpl" },
     config = function()
         require("go").setup({

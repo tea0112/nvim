@@ -57,7 +57,6 @@ require("lazy").setup({
     "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
     -- cmp
     "mfussenegger/nvim-dap",
-    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
     "theHamsta/nvim-dap-virtual-text",
     {
         "nvim-telescope/telescope.nvim",
@@ -65,6 +64,8 @@ require("lazy").setup({
     },
 }, {
     lockfile = "~/dotfiles/.config/nvim/lazy-lock.json", -- lockfile generated after running update.
+    git = { timeout = 300 }, -- 5 min for slow connections
+    concurrency = 5,         -- fewer parallel git ops
 })
 
 -------------------
