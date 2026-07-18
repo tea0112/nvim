@@ -192,14 +192,18 @@ vim.keymap.set({ "n", "v", "o" }, "<leader>8", "8gt", keymap_opts("Go to tab 8")
 vim.keymap.set({ "n", "v", "o" }, "<leader>9", "9gt", keymap_opts("Go to tab 9"))
 vim.keymap.set({ "n", "v", "o" }, "<leader>0", ":tablast<cr>", keymap_opts("Go to last tab"))
 
--- 1. Normal Mode: Space + t + h
-vim.keymap.set("n", "<leader>th", function()
-    vim.opt.hlsearch = not vim.opt.hlsearch:get()
-end, silent_keymap_opts("Toggle search highlight"))
--- 2. Insert Mode: Alt + t
-vim.keymap.set("i", "<M-t>", function()
-    vim.opt.hlsearch = not vim.opt.hlsearch:get()
-end, silent_keymap_opts("Toggle search highlight"))
+-- Automatically clear search highlight when moving the cursor or pressing Esc
+vim.keymap.set('n', '<Esc>', ':noh<CR><Esc>', { silent = true, desc = 'Clear search highlight' })
+
+vim.api.nvim_create_autocmd('CursorMoved', {
+    group = vim.api.nvim_create_augroup('AutoClearSearch', { clear = true }),
+    callback = function()
+        -- Only clear if hlsearch is currently active and we aren't in command-line mode
+        if vim.v.hlsearch == 1 and vim.fn.mode() ~= 'c' then
+            vim.cmd('nohlsearch')
+        end
+    end,
+})
 
 vim.keymap.set("n", ",s", ":wa<CR>", silent_keymap_opts("Save all buffers"))
 vim.keymap.set({ "n", "v" }, "<a-p>", '"0p', silent_keymap_opts("Paste from yank register"))
